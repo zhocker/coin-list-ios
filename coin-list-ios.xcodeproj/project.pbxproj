@@ -47,6 +47,8 @@
 		CE9BC7432C14B06D0047635D /* InviteFriendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE9BC7412C14B06D0047635D /* InviteFriendTableViewCell.xib */; };
 		CE9BC7472C14B2C00047635D /* UIView+Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC7462C14B2C00047635D /* UIView+Layer.swift */; };
 		CE9BC7492C14B42B0047635D /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC7482C14B42B0047635D /* UIColor+Hex.swift */; };
+		CE9BC74E2C14C1430047635D /* CoinCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC74C2C14C1430047635D /* CoinCollectionViewCell.swift */; };
+		CE9BC74F2C14C1430047635D /* CoinCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE9BC74D2C14C1430047635D /* CoinCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +118,8 @@
 		CE9BC7412C14B06D0047635D /* InviteFriendTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InviteFriendTableViewCell.xib; sourceTree = "<group>"; };
 		CE9BC7462C14B2C00047635D /* UIView+Layer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layer.swift"; sourceTree = "<group>"; };
 		CE9BC7482C14B42B0047635D /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		CE9BC74C2C14C1430047635D /* CoinCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCollectionViewCell.swift; sourceTree = "<group>"; };
+		CE9BC74D2C14C1430047635D /* CoinCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinCollectionViewCell.xib; sourceTree = "<group>"; };
 		DB8133416DD8C8C12F3B47EB /* Pods-coin-list-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coin-list-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-coin-list-iosTests/Pods-coin-list-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -292,10 +296,11 @@
 		CE9BC71D2C144E490047635D /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				CE9BC73F2C14B0480047635D /* InviteFriendCell */,
-				CE9BC7202C1457160047635D /* CoinTableViewCell */,
-				CE9BC7292C1465ED0047635D /* RankingTableViewCell */,
 				CE9BC7322C1468980047635D /* TitleTableViewCell */,
+				CE9BC7202C1457160047635D /* CoinTableViewCell */,
+				CE9BC73F2C14B0480047635D /* InviteFriendCell */,
+				CE9BC7292C1465ED0047635D /* RankingTableViewCell */,
+				CE9BC74B2C14C1150047635D /* CoinCollectionCell */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -369,6 +374,15 @@
 				CE9BC6D72C1416400047635D /* Main.storyboard */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		CE9BC74B2C14C1150047635D /* CoinCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				CE9BC74C2C14C1430047635D /* CoinCollectionViewCell.swift */,
+				CE9BC74D2C14C1430047635D /* CoinCollectionViewCell.xib */,
+			);
+			path = CoinCollectionCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -483,6 +497,7 @@
 				CE9BC7312C1468930047635D /* TitleTableViewCell.xib in Resources */,
 				CE9BC72D2C1466020047635D /* RankingTableViewCell.xib in Resources */,
 				CE9BC7432C14B06D0047635D /* InviteFriendTableViewCell.xib in Resources */,
+				CE9BC74F2C14C1430047635D /* CoinCollectionViewCell.xib in Resources */,
 				CE9BC6DE2C1416420047635D /* LaunchScreen.storyboard in Resources */,
 				CE9BC6DB2C1416410047635D /* Assets.xcassets in Resources */,
 				CE9BC7242C14573C0047635D /* CoinTableViewCell.xib in Resources */,
@@ -617,6 +632,7 @@
 				CE9BC71A2C142E150047635D /* CoinData.swift in Sources */,
 				CE9BC7122C14210F0047635D /* CoinListInteractor.swift in Sources */,
 				CE9BC7422C14B06D0047635D /* InviteFriendTableViewCell.swift in Sources */,
+				CE9BC74E2C14C1430047635D /* CoinCollectionViewCell.swift in Sources */,
 				CE9BC7492C14B42B0047635D /* UIColor+Hex.swift in Sources */,
 				CE9BC7182C142D540047635D /* CoinsResponse.swift in Sources */,
 				CE9BC72C2C1466020047635D /* RankingTableViewCell.swift in Sources */,

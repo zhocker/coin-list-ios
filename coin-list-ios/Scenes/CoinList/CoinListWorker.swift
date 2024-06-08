@@ -46,7 +46,7 @@ class CoinListWorker: CoinListWorkerProtocol {
         var displayCellItems: [CoinListModels.DisplayCellItem] = []
         let topRankCoins: [Coin] = Array(items.prefix(3))
         if keyword.isEmpty && !topRankCoins.isEmpty {
-            displayCellItems.append(.ranking(topRankCoins))
+            displayCellItems.append(.ranking(generateTopRankingTitle(amount: topRankCoins.count), topRankCoins))
             items = Array(items.dropFirst(topRankCoins.count))
         }
         displayCellItems.append(.title("Buy, sell and hold crypto"))
@@ -69,6 +69,21 @@ class CoinListWorker: CoinListWorkerProtocol {
         if let inviteRange = invitationText.range(of: "Invite your friend") {
             let nsInviteRange = NSRange(inviteRange, in: invitationText)
             attributedString.addAttribute(.foregroundColor, value: UIColor.color(with: "#38A0FF"), range: nsInviteRange)
+            attributedString.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 16), range: nsInviteRange)
+        }
+        return attributedString
+    }
+
+    private func generateTopRankingTitle(amount: Int) -> NSMutableAttributedString {
+        let invitationText = "Top \(amount) rank crypto"
+        let attributedString = NSMutableAttributedString(string: invitationText)
+        let fullRange = NSRange(location: 0, length: attributedString.length)
+        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 16), range: fullRange)
+        attributedString.addAttribute(.foregroundColor, value: UIColor.black, range: fullRange)
+        
+        if let inviteRange = invitationText.range(of: "\(amount)") {
+            let nsInviteRange = NSRange(inviteRange, in: invitationText)
+            attributedString.addAttribute(.foregroundColor, value: UIColor.color(with: "#C52221"), range: nsInviteRange)
             attributedString.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 16), range: nsInviteRange)
         }
         return attributedString

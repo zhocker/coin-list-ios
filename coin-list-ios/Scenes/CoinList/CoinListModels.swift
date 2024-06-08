@@ -11,7 +11,7 @@ import UIKit
 enum CoinListModels {
     
     enum DisplayCellItem {
-        case ranking([Coin])
+        case ranking(NSAttributedString, [Coin])
         case title(String)
         case coin(Coin)
         case inviteFriend(NSAttributedString)
