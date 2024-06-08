@@ -37,6 +37,16 @@
 		CE9BC72D2C1466020047635D /* RankingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE9BC72B2C1466020047635D /* RankingTableViewCell.xib */; };
 		CE9BC7302C1468930047635D /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC72E2C1468930047635D /* TitleTableViewCell.swift */; };
 		CE9BC7312C1468930047635D /* TitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE9BC72F2C1468930047635D /* TitleTableViewCell.xib */; };
+		CE9BC7392C14B0250047635D /* CoinDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC7332C14B0250047635D /* CoinDetailPresenter.swift */; };
+		CE9BC73A2C14B0250047635D /* CoinDetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC7342C14B0250047635D /* CoinDetailWorker.swift */; };
+		CE9BC73B2C14B0250047635D /* CoinDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC7352C14B0250047635D /* CoinDetailRouter.swift */; };
+		CE9BC73C2C14B0250047635D /* CoinDetailModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC7362C14B0250047635D /* CoinDetailModels.swift */; };
+		CE9BC73D2C14B0250047635D /* CoinDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC7372C14B0250047635D /* CoinDetailViewController.swift */; };
+		CE9BC73E2C14B0250047635D /* CoinDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC7382C14B0250047635D /* CoinDetailInteractor.swift */; };
+		CE9BC7422C14B06D0047635D /* InviteFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC7402C14B06D0047635D /* InviteFriendTableViewCell.swift */; };
+		CE9BC7432C14B06D0047635D /* InviteFriendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE9BC7412C14B06D0047635D /* InviteFriendTableViewCell.xib */; };
+		CE9BC7472C14B2C00047635D /* UIView+Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC7462C14B2C00047635D /* UIView+Layer.swift */; };
+		CE9BC7492C14B42B0047635D /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC7482C14B42B0047635D /* UIColor+Hex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +106,16 @@
 		CE9BC72B2C1466020047635D /* RankingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingTableViewCell.xib; sourceTree = "<group>"; };
 		CE9BC72E2C1468930047635D /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
 		CE9BC72F2C1468930047635D /* TitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleTableViewCell.xib; sourceTree = "<group>"; };
+		CE9BC7332C14B0250047635D /* CoinDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailPresenter.swift; sourceTree = "<group>"; };
+		CE9BC7342C14B0250047635D /* CoinDetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailWorker.swift; sourceTree = "<group>"; };
+		CE9BC7352C14B0250047635D /* CoinDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailRouter.swift; sourceTree = "<group>"; };
+		CE9BC7362C14B0250047635D /* CoinDetailModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailModels.swift; sourceTree = "<group>"; };
+		CE9BC7372C14B0250047635D /* CoinDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailViewController.swift; sourceTree = "<group>"; };
+		CE9BC7382C14B0250047635D /* CoinDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailInteractor.swift; sourceTree = "<group>"; };
+		CE9BC7402C14B06D0047635D /* InviteFriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteFriendTableViewCell.swift; sourceTree = "<group>"; };
+		CE9BC7412C14B06D0047635D /* InviteFriendTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InviteFriendTableViewCell.xib; sourceTree = "<group>"; };
+		CE9BC7462C14B2C00047635D /* UIView+Layer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layer.swift"; sourceTree = "<group>"; };
+		CE9BC7482C14B42B0047635D /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		DB8133416DD8C8C12F3B47EB /* Pods-coin-list-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coin-list-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-coin-list-iosTests/Pods-coin-list-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -182,7 +202,7 @@
 				CE9BC6DA2C1416410047635D /* Assets.xcassets */,
 				CE9BC7012C141BA00047635D /* Scenes */,
 				CE9BC71D2C144E490047635D /* CustomViews */,
-				CE9BC7062C141E280047635D /* Utility */,
+				CE9BC7062C141E280047635D /* Utilities */,
 				CE9BC7252C1461250047635D /* ViewModels */,
 				CE9BC7052C141BD80047635D /* DataModels */,
 				CE9BC7042C141BCF0047635D /* Networking */,
@@ -234,6 +254,12 @@
 		CE9BC7032C141BBD0047635D /* CoinDetail */ = {
 			isa = PBXGroup;
 			children = (
+				CE9BC7332C14B0250047635D /* CoinDetailPresenter.swift */,
+				CE9BC7342C14B0250047635D /* CoinDetailWorker.swift */,
+				CE9BC7352C14B0250047635D /* CoinDetailRouter.swift */,
+				CE9BC7362C14B0250047635D /* CoinDetailModels.swift */,
+				CE9BC7372C14B0250047635D /* CoinDetailViewController.swift */,
+				CE9BC7382C14B0250047635D /* CoinDetailInteractor.swift */,
 			);
 			path = CoinDetail;
 			sourceTree = "<group>";
@@ -257,17 +283,19 @@
 			path = DataModels;
 			sourceTree = "<group>";
 		};
-		CE9BC7062C141E280047635D /* Utility */ = {
+		CE9BC7062C141E280047635D /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				CE9BC71E2C14537E0047635D /* Debouncer.swift */,
+				CE9BC7452C14B2570047635D /* Extensions */,
+				CE9BC7442C14B24F0047635D /* Debouncer */,
 			);
-			path = Utility;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		CE9BC71D2C144E490047635D /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				CE9BC73F2C14B0480047635D /* InviteFriendCell */,
 				CE9BC7202C1457160047635D /* CoinTableViewCell */,
 				CE9BC7292C1465ED0047635D /* RankingTableViewCell */,
 				CE9BC7322C1468980047635D /* TitleTableViewCell */,
@@ -307,6 +335,32 @@
 				CE9BC72F2C1468930047635D /* TitleTableViewCell.xib */,
 			);
 			path = TitleTableViewCell;
+			sourceTree = "<group>";
+		};
+		CE9BC73F2C14B0480047635D /* InviteFriendCell */ = {
+			isa = PBXGroup;
+			children = (
+				CE9BC7402C14B06D0047635D /* InviteFriendTableViewCell.swift */,
+				CE9BC7412C14B06D0047635D /* InviteFriendTableViewCell.xib */,
+			);
+			path = InviteFriendCell;
+			sourceTree = "<group>";
+		};
+		CE9BC7442C14B24F0047635D /* Debouncer */ = {
+			isa = PBXGroup;
+			children = (
+				CE9BC71E2C14537E0047635D /* Debouncer.swift */,
+			);
+			path = Debouncer;
+			sourceTree = "<group>";
+		};
+		CE9BC7452C14B2570047635D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CE9BC7462C14B2C00047635D /* UIView+Layer.swift */,
+				CE9BC7482C14B42B0047635D /* UIColor+Hex.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -420,6 +474,7 @@
 			files = (
 				CE9BC7312C1468930047635D /* TitleTableViewCell.xib in Resources */,
 				CE9BC72D2C1466020047635D /* RankingTableViewCell.xib in Resources */,
+				CE9BC7432C14B06D0047635D /* InviteFriendTableViewCell.xib in Resources */,
 				CE9BC6DE2C1416420047635D /* LaunchScreen.storyboard in Resources */,
 				CE9BC6DB2C1416410047635D /* Assets.xcassets in Resources */,
 				CE9BC7242C14573C0047635D /* CoinTableViewCell.xib in Resources */,
@@ -553,22 +608,31 @@
 			files = (
 				CE9BC71A2C142E150047635D /* CoinData.swift in Sources */,
 				CE9BC7122C14210F0047635D /* CoinListInteractor.swift in Sources */,
+				CE9BC7422C14B06D0047635D /* InviteFriendTableViewCell.swift in Sources */,
+				CE9BC7492C14B42B0047635D /* UIColor+Hex.swift in Sources */,
 				CE9BC7182C142D540047635D /* CoinsResponse.swift in Sources */,
 				CE9BC72C2C1466020047635D /* RankingTableViewCell.swift in Sources */,
 				CE9BC71C2C142E470047635D /* Stats.swift in Sources */,
 				CE9BC6D62C1416400047635D /* ViewController.swift in Sources */,
 				CE9BC70E2C14210F0047635D /* CoinListWorker.swift in Sources */,
+				CE9BC73A2C14B0250047635D /* CoinDetailWorker.swift in Sources */,
 				CE9BC6D22C1416400047635D /* AppDelegate.swift in Sources */,
 				CE9BC7112C14210F0047635D /* CoinListViewController.swift in Sources */,
 				CE9BC71F2C14537E0047635D /* Debouncer.swift in Sources */,
 				CE9BC70F2C14210F0047635D /* CoinListRouter.swift in Sources */,
 				CE9BC6D42C1416400047635D /* SceneDelegate.swift in Sources */,
 				CE9BC70D2C14210F0047635D /* CoinListPresenter.swift in Sources */,
+				CE9BC73B2C14B0250047635D /* CoinDetailRouter.swift in Sources */,
 				CE9BC7142C14251A0047635D /* Coin.swift in Sources */,
 				CE9BC7102C14210F0047635D /* CoinListModels.swift in Sources */,
+				CE9BC7472C14B2C00047635D /* UIView+Layer.swift in Sources */,
 				CE9BC7232C14573C0047635D /* CoinTableViewCell.swift in Sources */,
 				CE9BC7302C1468930047635D /* TitleTableViewCell.swift in Sources */,
 				CE9BC7162C1428E80047635D /* CoinService.swift in Sources */,
+				CE9BC73E2C14B0250047635D /* CoinDetailInteractor.swift in Sources */,
+				CE9BC7392C14B0250047635D /* CoinDetailPresenter.swift in Sources */,
+				CE9BC73D2C14B0250047635D /* CoinDetailViewController.swift in Sources */,
+				CE9BC73C2C14B0250047635D /* CoinDetailModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -749,16 +813,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = Q72VF93B33;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "coin-list-ios/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = miniCryto;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -767,6 +836,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tnps.coin-list-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Profile_ Development_2023_10_02";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -779,16 +850,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = Q72VF93B33;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "coin-list-ios/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = miniCryto;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -797,6 +873,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tnps.coin-list-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Profile_ Development_2023_10_02";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

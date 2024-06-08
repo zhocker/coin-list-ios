@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import SDWebImage
+import Kingfisher
 
 class CoinTableViewCell: UITableViewCell {
 
@@ -29,14 +29,18 @@ class CoinTableViewCell: UITableViewCell {
     }
     
     func config(coin: Coin) {
-        if let iconUrl = coin.iconUrl {
-            coinImageView.sd_setImage(with: URL(string: iconUrl))
+        if let iconUrl = coin.iconUrl, let url = URL(string: iconUrl)  {
+            coinImageView.kf.setImage(with: url)
+        } else {
+            coinImageView.image = nil
         }
         nameLabel.text = coin.name
         symbolLabel.text = coin.symbol
         priceLabel.text = coin.price
         changeLabel.text = coin.change
-        chanageImageView.image = nil
+        changeLabel.textColor = UIColor.color(with: coin.changeColor)
+        chanageImageView.image = UIImage(named: coin.changeIconImageName)
+        
     }
     
 }

@@ -28,7 +28,7 @@ class CoinListViewController: UIViewController {
         return element
     }()
     
-    lazy var searhBar: UISearchBar = {
+    lazy var searchBar: UISearchBar = {
         let element = UISearchBar()
         element.delegate = self
         return element
@@ -40,17 +40,14 @@ class CoinListViewController: UIViewController {
         element.delegate = self
         element.dataSource = self
         element.refreshControl = self.refreshControl
-
-        element.register(UITableViewCell.self, forCellReuseIdentifier: "AdCell")
-        element.register(UITableViewCell.self, forCellReuseIdentifier: "TitleCell")
-        element.register(UITableViewCell.self, forCellReuseIdentifier: "InviteFriendCell")
         
-        
+        element.register(UINib(nibName: "InviteFriendTableViewCell", bundle: nil), forCellReuseIdentifier: "InviteFriendTableViewCell")
         element.register(UINib(nibName: "TitleTableViewCell", bundle: nil), forCellReuseIdentifier: "TitleTableViewCell")
         element.register(UINib(nibName: "RankingTableViewCell", bundle: nil), forCellReuseIdentifier: "RankingTableViewCell")
         element.register(UINib(nibName: "CoinTableViewCell", bundle: nil), forCellReuseIdentifier: "CoinTableViewCell")
 
         return element
+        
     }()
     
     lazy var refreshControl: UIRefreshControl = {
@@ -64,7 +61,7 @@ class CoinListViewController: UIViewController {
         self.initUI()
         self.initLayoutConstraint()
         self.applyStyle()
-        self.interactor.getCoinList(request: .init(keyword: self.searhBar.text ?? ""))
+        self.interactor.getCoinList(request: .init(keyword: self.searchBar.text ?? ""))
     }
 
 }
@@ -72,7 +69,7 @@ class CoinListViewController: UIViewController {
 private extension CoinListViewController {
     
     @objc private func refreshData() {
-        self.interactor.getCoinList(request: .init(keyword: self.searhBar.text ?? ""))
+        self.interactor.getCoinList(request: .init(keyword: self.searchBar.text ?? ""))
     }
     
 }
@@ -82,7 +79,7 @@ private extension CoinListViewController {
 
     func initUI() {
         self.view.addSubview(dummyView)
-        self.view.addSubview(searhBar)
+        self.view.addSubview(searchBar)
         self.view.addSubview(tableView)
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
     }
@@ -92,13 +89,13 @@ private extension CoinListViewController {
             make.center.equalToSuperview()
         }
 
-        self.searhBar.snp.makeConstraints { make in
+        self.searchBar.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide)
             make.left.right.equalTo(self.view)
         }
         
         self.tableView.snp.makeConstraints { make in
-            make.top.equalTo(self.searhBar.snp.bottom)
+            make.top.equalTo(self.searchBar.snp.bottom)
             make.left.right.bottom.equalTo(self.view)
         }
         
@@ -136,13 +133,13 @@ extension CoinListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.debouncer.execute { [weak self] in
             guard let self = self else { return }
-            self.interactor.getCoinList(request: .init(keyword: self.searhBar.text ?? ""))
+            self.interactor.getCoinList(request: .init(keyword: self.searchBar.text ?? ""))
         }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        self.interactor.getCoinList(request: .init(keyword: self.searhBar.text ?? ""))
+        self.interactor.getCoinList(request: .init(keyword: self.searchBar.text ?? ""))
     }
     
 }
@@ -169,10 +166,11 @@ extension CoinListViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.config(coin: coin)
                 return cell
             }
-        case .inviteFriend:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "InviteFriendCell", for: indexPath)
-            cell.textLabel?.text = "Invite a Friend"
-            return cell
+        case .inviteFriend(let attributedString):
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "InviteFriendTableViewCell", for: indexPath) as? InviteFriendTableViewCell {
+                cell.config(attributedString: attributedString)
+                return cell
+            }
         }
         
         return UITableViewCell()
@@ -185,7 +183,18 @@ extension CoinListViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let item = self.dataStore.displayCellItems[indexPath.row]
+        switch item {
+        case .ranking(let coins):
+            break
+        case .title(let title):
+            break
+        case .coin(let coin):
+            break
+        case .inviteFriend(let attributedString):
+            self.router.shareText(invitationText: attributedString.string, viewController: self)
+            break
+        }
     }
     
 }

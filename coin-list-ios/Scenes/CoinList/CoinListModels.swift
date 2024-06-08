@@ -14,7 +14,7 @@ enum CoinListModels {
         case ranking([Coin])
         case title(String)
         case coin(Coin)
-        case inviteFriend
+        case inviteFriend(NSAttributedString)
     }
 
     enum GetCoinList {
@@ -49,6 +49,22 @@ enum CoinListModels {
         
     }
     
+    enum ShareSocial {
+        
+        struct Request {
+
+        }
+        
+        struct Response {
+
+        }
+        
+        struct ViewModel {
+
+        }
+        
+    }
+
     
     enum PresentErrorDialog {
         

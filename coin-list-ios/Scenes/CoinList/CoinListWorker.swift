@@ -54,10 +54,26 @@ class CoinListWorker: CoinListWorkerProtocol {
         for (index, coin) in items.enumerated() {
             displayCellItems.append(.coin(coin))
             if (index + 1) % 4 == 0 {
-                displayCellItems.append(.inviteFriend)
+                displayCellItems.append(.inviteFriend(self.generateInviteFriendText()))
             }
         }
         return displayCellItems
     }
+    
+    private func generateInviteFriendText() -> NSMutableAttributedString {
+        let invitationText = "You can earn $10 when you invite a friend to buy crypto. Invite your friend"
+        let attributedString = NSMutableAttributedString(string: invitationText)
+        let fullRange = NSRange(location: 0, length: attributedString.length)
+        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 16), range: fullRange)
+        attributedString.addAttribute(.foregroundColor, value: UIColor.black, range: fullRange)
+        
+        if let inviteRange = invitationText.range(of: "Invite your friend") {
+            let nsInviteRange = NSRange(inviteRange, in: invitationText)
+            attributedString.addAttribute(.foregroundColor, value: UIColor.color(with: "#38A0FF"), range: nsInviteRange)
+            attributedString.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 16), range: nsInviteRange)
+        }
+        return attributedString
+    }
+
 
 }

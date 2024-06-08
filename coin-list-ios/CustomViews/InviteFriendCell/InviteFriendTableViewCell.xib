@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="InviteFriendTableViewCell" rowHeight="94" id="KGk-i7-Jjw" customClass="InviteFriendTableViewCell" customModule="coin_list_ios" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="94"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="94"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z6r-ad-gay">
+                        <rect key="frame" x="15" y="0.0" width="290" height="82"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4iP-f7-d92">
+                                <rect key="frame" x="16" y="21" width="40" height="40"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-gift" translatesAutoresizingMaskIntoConstraints="NO" id="Gt9-ql-QmY">
+                                        <rect key="frame" x="9" y="9" width="22" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="018-RA-4yU"/>
+                                            <constraint firstAttribute="width" constant="22" id="hMw-lB-zIj"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Gt9-ql-QmY" firstAttribute="centerY" secondItem="4iP-f7-d92" secondAttribute="centerY" id="0sj-LQ-n0X"/>
+                                    <constraint firstAttribute="height" constant="40" id="7ia-df-HWb"/>
+                                    <constraint firstAttribute="width" constant="40" id="pgI-SL-QXA"/>
+                                    <constraint firstItem="Gt9-ql-QmY" firstAttribute="centerX" secondItem="4iP-f7-d92" secondAttribute="centerX" id="utc-8X-7ya"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can earn $10  when you invite a friend to buy crypto. Invite your friend" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24j-ze-J5N">
+                                <rect key="frame" x="72" y="12.333333333333332" width="202" height="57.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.77254901960784317" green="0.90196078431372551" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="24j-ze-J5N" secondAttribute="trailing" constant="16" id="Fop-st-UC5"/>
+                            <constraint firstItem="4iP-f7-d92" firstAttribute="centerY" secondItem="Z6r-ad-gay" secondAttribute="centerY" id="GU7-J1-XUz"/>
+                            <constraint firstItem="4iP-f7-d92" firstAttribute="leading" secondItem="Z6r-ad-gay" secondAttribute="leading" constant="16" id="XeW-FC-vkG"/>
+                            <constraint firstItem="24j-ze-J5N" firstAttribute="leading" secondItem="4iP-f7-d92" secondAttribute="trailing" constant="16" id="b5t-9J-LEc"/>
+                            <constraint firstItem="24j-ze-J5N" firstAttribute="centerY" secondItem="Z6r-ad-gay" secondAttribute="centerY" id="lKz-7a-oHT"/>
+                            <constraint firstAttribute="height" constant="82" id="pMe-QK-7Zt"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Z6r-ad-gay" secondAttribute="bottom" constant="12" id="1Ge-dC-M6c"/>
+                    <constraint firstAttribute="trailing" secondItem="Z6r-ad-gay" secondAttribute="trailing" constant="15" id="4Gl-IY-y9c"/>
+                    <constraint firstItem="Z6r-ad-gay" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="XF6-cY-eJk"/>
+                    <constraint firstItem="Z6r-ad-gay" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="lck-pm-WYA"/>
+                    <constraint firstItem="Z6r-ad-gay" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="lnk-X6-pa3"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+            <connections>
+                <outlet property="titleLabel" destination="24j-ze-J5N" id="dIa-JS-hqR"/>
+            </connections>
+            <point key="canvasLocation" x="131.29770992366412" y="9.8591549295774659"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon-gift" width="22" height="22"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
