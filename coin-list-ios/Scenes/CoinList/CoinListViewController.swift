@@ -71,7 +71,7 @@ private extension CoinListViewController {
     }
     
     func initLayoutConstraint() {
-        self.dummyLabel.snp.makeConstraints { make in
+        self.dummyView.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
 

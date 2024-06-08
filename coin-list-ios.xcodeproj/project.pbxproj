@@ -26,6 +26,7 @@
 		CE9BC7112C14210F0047635D /* CoinListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC70B2C14210F0047635D /* CoinListViewController.swift */; };
 		CE9BC7122C14210F0047635D /* CoinListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC70C2C14210F0047635D /* CoinListInteractor.swift */; };
 		CE9BC7142C14251A0047635D /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC7132C14251A0047635D /* Coin.swift */; };
+		CE9BC7162C1428E80047635D /* CoinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC7152C1428E80047635D /* CoinService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		CE9BC70B2C14210F0047635D /* CoinListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinListViewController.swift; sourceTree = "<group>"; };
 		CE9BC70C2C14210F0047635D /* CoinListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinListInteractor.swift; sourceTree = "<group>"; };
 		CE9BC7132C14251A0047635D /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
+		CE9BC7152C1428E80047635D /* CoinService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinService.swift; sourceTree = "<group>"; };
 		DB8133416DD8C8C12F3B47EB /* Pods-coin-list-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coin-list-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-coin-list-iosTests/Pods-coin-list-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -217,6 +219,7 @@
 		CE9BC7042C141BCF0047635D /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				CE9BC7152C1428E80047635D /* CoinService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				CE9BC70D2C14210F0047635D /* CoinListPresenter.swift in Sources */,
 				CE9BC7142C14251A0047635D /* Coin.swift in Sources */,
 				CE9BC7102C14210F0047635D /* CoinListModels.swift in Sources */,
+				CE9BC7162C1428E80047635D /* CoinService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
