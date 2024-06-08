@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2AC766D1DBED42F51E9BF933 /* Pods_coin_list_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E1483675CEF8354C2B1A93B /* Pods_coin_list_ios.framework */; };
+		81C376809CD8C92DA9B6D5BF /* Pods_coin_list_ios_coin_list_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1DA2482A358EE721DF5B396 /* Pods_coin_list_ios_coin_list_iosUITests.framework */; };
+		B88D77D54FA761D67CB75890 /* Pods_coin_list_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47485BF0AF4AF2D6B4A065F5 /* Pods_coin_list_iosTests.framework */; };
 		CE9BC6D22C1416400047635D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC6D12C1416400047635D /* AppDelegate.swift */; };
 		CE9BC6D42C1416400047635D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC6D32C1416400047635D /* SceneDelegate.swift */; };
 		CE9BC6D62C1416400047635D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC6D52C1416400047635D /* ViewController.swift */; };
@@ -36,6 +39,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2470465CA8620168AF1DB9E1 /* Pods-coin-list-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coin-list-iosTests.release.xcconfig"; path = "Target Support Files/Pods-coin-list-iosTests/Pods-coin-list-iosTests.release.xcconfig"; sourceTree = "<group>"; };
+		47485BF0AF4AF2D6B4A065F5 /* Pods_coin_list_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_coin_list_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D01C135C237541424DA6625 /* Pods-coin-list-ios-coin-list-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coin-list-ios-coin-list-iosUITests.debug.xcconfig"; path = "Target Support Files/Pods-coin-list-ios-coin-list-iosUITests/Pods-coin-list-ios-coin-list-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8E1483675CEF8354C2B1A93B /* Pods_coin_list_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_coin_list_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B32BBD8893181AEB97E3752A /* Pods-coin-list-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coin-list-ios.release.xcconfig"; path = "Target Support Files/Pods-coin-list-ios/Pods-coin-list-ios.release.xcconfig"; sourceTree = "<group>"; };
+		C1DA2482A358EE721DF5B396 /* Pods_coin_list_ios_coin_list_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_coin_list_ios_coin_list_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C379016387CE937FC2BAA905 /* Pods-coin-list-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coin-list-ios.debug.xcconfig"; path = "Target Support Files/Pods-coin-list-ios/Pods-coin-list-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		C4CA5E2B5C0A61966E80542A /* Pods-coin-list-ios-coin-list-iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coin-list-ios-coin-list-iosUITests.release.xcconfig"; path = "Target Support Files/Pods-coin-list-ios-coin-list-iosUITests/Pods-coin-list-ios-coin-list-iosUITests.release.xcconfig"; sourceTree = "<group>"; };
 		CE9BC6CE2C1416400047635D /* coin-list-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "coin-list-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9BC6D12C1416400047635D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE9BC6D32C1416400047635D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +60,7 @@
 		CE9BC6EE2C1416420047635D /* coin-list-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "coin-list-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9BC6F22C1416420047635D /* coin_list_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coin_list_iosUITests.swift; sourceTree = "<group>"; };
 		CE9BC6F42C1416420047635D /* coin_list_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coin_list_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DB8133416DD8C8C12F3B47EB /* Pods-coin-list-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coin-list-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-coin-list-iosTests/Pods-coin-list-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AC766D1DBED42F51E9BF933 /* Pods_coin_list_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B88D77D54FA761D67CB75890 /* Pods_coin_list_iosTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +84,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81C376809CD8C92DA9B6D5BF /* Pods_coin_list_ios_coin_list_iosUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BFCA0C582D564DBA668159B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8E1483675CEF8354C2B1A93B /* Pods_coin_list_ios.framework */,
+				C1DA2482A358EE721DF5B396 /* Pods_coin_list_ios_coin_list_iosUITests.framework */,
+				47485BF0AF4AF2D6B4A065F5 /* Pods_coin_list_iosTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE8D71724C5A4DCA7E325F27 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C379016387CE937FC2BAA905 /* Pods-coin-list-ios.debug.xcconfig */,
+				B32BBD8893181AEB97E3752A /* Pods-coin-list-ios.release.xcconfig */,
+				6D01C135C237541424DA6625 /* Pods-coin-list-ios-coin-list-iosUITests.debug.xcconfig */,
+				C4CA5E2B5C0A61966E80542A /* Pods-coin-list-ios-coin-list-iosUITests.release.xcconfig */,
+				DB8133416DD8C8C12F3B47EB /* Pods-coin-list-iosTests.debug.xcconfig */,
+				2470465CA8620168AF1DB9E1 /* Pods-coin-list-iosTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		CE9BC6C52C1416400047635D = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +122,8 @@
 				CE9BC6E72C1416420047635D /* coin-list-iosTests */,
 				CE9BC6F12C1416420047635D /* coin-list-iosUITests */,
 				CE9BC6CF2C1416400047635D /* Products */,
+				CE8D71724C5A4DCA7E325F27 /* Pods */,
+				BFCA0C582D564DBA668159B3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,6 +175,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE9BC6F82C1416420047635D /* Build configuration list for PBXNativeTarget "coin-list-ios" */;
 			buildPhases = (
+				5951121A1BD939357DEDF90D /* [CP] Check Pods Manifest.lock */,
 				CE9BC6CA2C1416400047635D /* Sources */,
 				CE9BC6CB2C1416400047635D /* Frameworks */,
 				CE9BC6CC2C1416400047635D /* Resources */,
@@ -151,6 +193,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE9BC6FB2C1416420047635D /* Build configuration list for PBXNativeTarget "coin-list-iosTests" */;
 			buildPhases = (
+				DFF006C67BA0D08DA172C079 /* [CP] Check Pods Manifest.lock */,
 				CE9BC6E02C1416420047635D /* Sources */,
 				CE9BC6E12C1416420047635D /* Frameworks */,
 				CE9BC6E22C1416420047635D /* Resources */,
@@ -169,6 +212,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE9BC6FE2C1416420047635D /* Build configuration list for PBXNativeTarget "coin-list-iosUITests" */;
 			buildPhases = (
+				AC9DA701333CFB4D3FD2BF33 /* [CP] Check Pods Manifest.lock */,
 				CE9BC6EA2C1416420047635D /* Sources */,
 				CE9BC6EB2C1416420047635D /* Frameworks */,
 				CE9BC6EC2C1416420047635D /* Resources */,
@@ -252,6 +296,75 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5951121A1BD939357DEDF90D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-coin-list-ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC9DA701333CFB4D3FD2BF33 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-coin-list-ios-coin-list-iosUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DFF006C67BA0D08DA172C079 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-coin-list-iosTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CE9BC6CA2C1416400047635D /* Sources */ = {
@@ -437,6 +550,7 @@
 		};
 		CE9BC6F92C1416420047635D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C379016387CE937FC2BAA905 /* Pods-coin-list-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -465,6 +579,7 @@
 		};
 		CE9BC6FA2C1416420047635D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B32BBD8893181AEB97E3752A /* Pods-coin-list-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -493,6 +608,7 @@
 		};
 		CE9BC6FC2C1416420047635D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB8133416DD8C8C12F3B47EB /* Pods-coin-list-iosTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -512,6 +628,7 @@
 		};
 		CE9BC6FD2C1416420047635D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2470465CA8620168AF1DB9E1 /* Pods-coin-list-iosTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -531,6 +648,7 @@
 		};
 		CE9BC6FF2C1416420047635D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D01C135C237541424DA6625 /* Pods-coin-list-ios-coin-list-iosUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -549,6 +667,7 @@
 		};
 		CE9BC7002C1416420047635D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4CA5E2B5C0A61966E80542A /* Pods-coin-list-ios-coin-list-iosUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
