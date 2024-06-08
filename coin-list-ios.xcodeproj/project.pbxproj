@@ -27,6 +27,9 @@
 		CE9BC7122C14210F0047635D /* CoinListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC70C2C14210F0047635D /* CoinListInteractor.swift */; };
 		CE9BC7142C14251A0047635D /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC7132C14251A0047635D /* Coin.swift */; };
 		CE9BC7162C1428E80047635D /* CoinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC7152C1428E80047635D /* CoinService.swift */; };
+		CE9BC7182C142D540047635D /* CoinsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC7172C142D540047635D /* CoinsResponse.swift */; };
+		CE9BC71A2C142E150047635D /* CoinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC7192C142E150047635D /* CoinData.swift */; };
+		CE9BC71C2C142E470047635D /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC71B2C142E470047635D /* Stats.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +79,9 @@
 		CE9BC70C2C14210F0047635D /* CoinListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinListInteractor.swift; sourceTree = "<group>"; };
 		CE9BC7132C14251A0047635D /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		CE9BC7152C1428E80047635D /* CoinService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinService.swift; sourceTree = "<group>"; };
+		CE9BC7172C142D540047635D /* CoinsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsResponse.swift; sourceTree = "<group>"; };
+		CE9BC7192C142E150047635D /* CoinData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinData.swift; sourceTree = "<group>"; };
+		CE9BC71B2C142E470047635D /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
 		DB8133416DD8C8C12F3B47EB /* Pods-coin-list-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coin-list-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-coin-list-iosTests/Pods-coin-list-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -227,6 +233,9 @@
 		CE9BC7052C141BD80047635D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CE9BC7172C142D540047635D /* CoinsResponse.swift */,
+				CE9BC7192C142E150047635D /* CoinData.swift */,
+				CE9BC71B2C142E470047635D /* Stats.swift */,
 				CE9BC7132C14251A0047635D /* Coin.swift */,
 			);
 			path = Models;
@@ -478,7 +487,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE9BC71A2C142E150047635D /* CoinData.swift in Sources */,
 				CE9BC7122C14210F0047635D /* CoinListInteractor.swift in Sources */,
+				CE9BC7182C142D540047635D /* CoinsResponse.swift in Sources */,
+				CE9BC71C2C142E470047635D /* Stats.swift in Sources */,
 				CE9BC6D62C1416400047635D /* ViewController.swift in Sources */,
 				CE9BC70E2C14210F0047635D /* CoinListWorker.swift in Sources */,
 				CE9BC6D22C1416400047635D /* AppDelegate.swift in Sources */,

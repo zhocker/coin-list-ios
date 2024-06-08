@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         }
         
         if let window = sceneDelegate.window {
-            window.rootViewController = CoinListViewController()
+            window.rootViewController = CoinListRouter.createScene()
             window.makeKeyAndVisible()
         }
     }
