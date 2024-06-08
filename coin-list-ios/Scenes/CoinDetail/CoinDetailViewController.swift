@@ -8,7 +8,6 @@
 import UIKit
 import SnapKit
 
-// sourcery: AutoMockable
 protocol CoinDetailViewControllerDisplayLogic: AnyObject {
     func displayErrorDialog(viewModel: CoinDetailModels.PresentErrorDialog.ViewModel)
 }

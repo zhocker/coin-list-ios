@@ -7,7 +7,6 @@
 
 import UIKit
 
-// sourcery: AutoMockable
 protocol CoinDetailWorkerProtocol: AnyObject {
     func doSomeCalculate() -> Int
 }

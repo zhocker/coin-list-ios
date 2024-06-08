@@ -8,10 +8,8 @@
 import Foundation
 import UIKit
 
-// sourcery: AutoMockable
 protocol CoinDetailInteractorBusinessLogic: AnyObject {}
 
-// sourcery: AutoMockable
 protocol CoinDetailInteractorDataStore: AnyObject {}
 
 // MARK: - Interactor

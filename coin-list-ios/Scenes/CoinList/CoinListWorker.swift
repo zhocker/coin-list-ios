@@ -8,7 +8,6 @@
 import UIKit
 import Moya
 
-// sourcery: AutoMockable
 protocol CoinListWorkerProtocol: AnyObject {
     func fetchCoins(limit: Int, offset: Int, keyword: String, completion: @escaping ([Coin], Error?) -> Void)
     func generateDisplayCellItems(keyword: String, coins: [Coin]) -> [CoinListModels.DisplayCellItem]

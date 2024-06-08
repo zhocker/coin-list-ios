@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-// sourcery: AutoMockable
 protocol CoinDetailRouterRoutingLogic {
     static func createScene() -> CoinDetailViewController
 }

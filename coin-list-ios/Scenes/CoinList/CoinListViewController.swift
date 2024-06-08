@@ -8,7 +8,6 @@
 import UIKit
 import SnapKit
 
-// sourcery: AutoMockable
 protocol CoinListViewControllerDisplayLogic: AnyObject {
     func displayErrorDialog(viewModel: CoinListModels.PresentErrorDialog.ViewModel)
     func displayCoinList(viewModel: CoinListModels.GetCoinList.ViewModel)
@@ -192,7 +191,7 @@ extension CoinListViewController: UITableViewDelegate, UITableViewDataSource {
         case .coin(let coin):
             break
         case .inviteFriend(let attributedString):
-            self.router.shareText(invitationText: attributedString.string, viewController: self)
+            self.router.shareText(invitationText: attributedString.string)
             break
         }
     }

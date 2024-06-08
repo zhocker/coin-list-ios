@@ -8,13 +8,11 @@
 import Foundation
 import UIKit
 
-// sourcery: AutoMockable
 protocol CoinListInteractorBusinessLogic: AnyObject {
     func getCoinList(request: CoinListModels.GetCoinList.Request)
     func loadMore(request: CoinListModels.LoadMore.Request)
 }
 
-// sourcery: AutoMockable
 protocol CoinListInteractorDataStore: AnyObject {
     var displayCellItems: [CoinListModels.DisplayCellItem] { get }
 }
