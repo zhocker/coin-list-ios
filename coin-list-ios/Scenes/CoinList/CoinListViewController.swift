@@ -36,14 +36,20 @@ class CoinListViewController: UIViewController {
 
     lazy var tableView: UITableView = {
         let element = UITableView()
+        element.separatorStyle = .none
         element.delegate = self
         element.dataSource = self
-        
-        element.register(UITableViewCell.self, forCellReuseIdentifier: "RankingCell")
-        element.register(UITableViewCell.self, forCellReuseIdentifier: "CoinCell")
-        element.register(UITableViewCell.self, forCellReuseIdentifier: "AdCell")
-        
         element.refreshControl = self.refreshControl
+
+        element.register(UITableViewCell.self, forCellReuseIdentifier: "AdCell")
+        element.register(UITableViewCell.self, forCellReuseIdentifier: "TitleCell")
+        element.register(UITableViewCell.self, forCellReuseIdentifier: "InviteFriendCell")
+        
+        
+        element.register(UINib(nibName: "TitleTableViewCell", bundle: nil), forCellReuseIdentifier: "TitleTableViewCell")
+        element.register(UINib(nibName: "RankingTableViewCell", bundle: nil), forCellReuseIdentifier: "RankingTableViewCell")
+        element.register(UINib(nibName: "CoinTableViewCell", bundle: nil), forCellReuseIdentifier: "CoinTableViewCell")
+
         return element
     }()
     
@@ -150,22 +156,26 @@ extension CoinListViewController: UITableViewDelegate, UITableViewDataSource {
         let item = self.dataStore.displayCellItems[indexPath.row]
         switch item {
         case .ranking(let coins):
-            let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
-            cell.textLabel?.text = "ranking"
-            return cell
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "RankingTableViewCell", for: indexPath) as? RankingTableViewCell {
+                return cell
+            }
         case .title(let title):
-            let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
-            cell.textLabel?.text = title
-            return cell
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell", for: indexPath) as? TitleTableViewCell {
+                cell.config(title: title)
+                return cell
+            }
         case .coin(let coin):
-            let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
-            cell.textLabel?.text = coin.name
-            return cell
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "CoinTableViewCell", for: indexPath) as? CoinTableViewCell {
+                cell.config(coin: coin)
+                return cell
+            }
         case .inviteFriend:
-            let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
-            cell.textLabel?.text = "inviteFriend"
+            let cell = tableView.dequeueReusableCell(withIdentifier: "InviteFriendCell", for: indexPath)
+            cell.textLabel?.text = "Invite a Friend"
             return cell
         }
+        
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

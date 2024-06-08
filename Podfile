@@ -7,6 +7,7 @@ target 'coin-list-ios' do
   pod 'SnapKit'
   pod 'Moya'
   pod 'IQKeyboardManager'
+  pod 'SDWebImage'
   
   target 'coin-list-iosTests' do
     inherit! :search_paths
