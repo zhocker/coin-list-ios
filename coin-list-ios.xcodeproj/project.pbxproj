@@ -30,6 +30,7 @@
 		CE9BC7182C142D540047635D /* CoinsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC7172C142D540047635D /* CoinsResponse.swift */; };
 		CE9BC71A2C142E150047635D /* CoinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC7192C142E150047635D /* CoinData.swift */; };
 		CE9BC71C2C142E470047635D /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC71B2C142E470047635D /* Stats.swift */; };
+		CE9BC71F2C14537E0047635D /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC71E2C14537E0047635D /* Debouncer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		CE9BC7172C142D540047635D /* CoinsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsResponse.swift; sourceTree = "<group>"; };
 		CE9BC7192C142E150047635D /* CoinData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinData.swift; sourceTree = "<group>"; };
 		CE9BC71B2C142E470047635D /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
+		CE9BC71E2C14537E0047635D /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
 		DB8133416DD8C8C12F3B47EB /* Pods-coin-list-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coin-list-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-coin-list-iosTests/Pods-coin-list-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,8 +168,9 @@
 				CE9BC6D52C1416400047635D /* ViewController.swift */,
 				CE9BC6D72C1416400047635D /* Main.storyboard */,
 				CE9BC6DA2C1416410047635D /* Assets.xcassets */,
+				CE9BC71D2C144E490047635D /* Views */,
 				CE9BC7012C141BA00047635D /* Scenes */,
-				CE9BC7062C141E280047635D /* Repositories */,
+				CE9BC7062C141E280047635D /* Utility */,
 				CE9BC7052C141BD80047635D /* Models */,
 				CE9BC7042C141BCF0047635D /* Networking */,
 				CE9BC6DC2C1416420047635D /* LaunchScreen.storyboard */,
@@ -241,11 +244,19 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		CE9BC7062C141E280047635D /* Repositories */ = {
+		CE9BC7062C141E280047635D /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				CE9BC71E2C14537E0047635D /* Debouncer.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		CE9BC71D2C144E490047635D /* Views */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Repositories;
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -495,6 +506,7 @@
 				CE9BC70E2C14210F0047635D /* CoinListWorker.swift in Sources */,
 				CE9BC6D22C1416400047635D /* AppDelegate.swift in Sources */,
 				CE9BC7112C14210F0047635D /* CoinListViewController.swift in Sources */,
+				CE9BC71F2C14537E0047635D /* Debouncer.swift in Sources */,
 				CE9BC70F2C14210F0047635D /* CoinListRouter.swift in Sources */,
 				CE9BC6D42C1416400047635D /* SceneDelegate.swift in Sources */,
 				CE9BC70D2C14210F0047635D /* CoinListPresenter.swift in Sources */,

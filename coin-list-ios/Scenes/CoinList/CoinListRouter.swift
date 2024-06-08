@@ -21,7 +21,8 @@ class CoinListRouter: CoinListRouterRoutingLogic {
         let interactor = CoinListInteractor()
         let presenter = CoinListPresenter()
         let router = CoinListRouter()
-
+        
+        viewController.dataStore = interactor
         viewController.interactor = interactor
         viewController.router = router
         interactor.presenter = presenter

@@ -36,7 +36,7 @@ enum CoinListModels {
     enum LoadMore {
         
         struct Request {
-            var keyword: String
+
         }
         
         struct Response {
@@ -49,9 +49,12 @@ enum CoinListModels {
         
     }
     
+    
     enum PresentErrorDialog {
         
-        struct Request {}
+        struct Request {
+            
+        }
 
         struct Response {
             var error: Error?

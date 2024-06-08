@@ -6,8 +6,8 @@ target 'coin-list-ios' do
   use_frameworks!
   pod 'SnapKit'
   pod 'Moya'
-  # Pods for coin-list-ios
-
+  pod 'IQKeyboardManager'
+  
   target 'coin-list-iosTests' do
     inherit! :search_paths
     # Pods for testing

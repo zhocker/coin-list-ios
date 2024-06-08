@@ -19,8 +19,9 @@ class CoinListViewController: UIViewController {
 
     var interactor: CoinListInteractorBusinessLogic!
     var router: CoinListRouterRoutingLogic!
-    var items: [CoinListModels.DisplayCellItem] = []
-    
+    var dataStore: CoinListInteractorDataStore!
+    private let debouncer = Debouncer(interval: 0.5) // Adjust the interval as needed
+
     lazy var dummyView: UIView = {
         let element = UIView()
         element.backgroundColor = .white
@@ -41,7 +42,6 @@ class CoinListViewController: UIViewController {
         element.register(UITableViewCell.self, forCellReuseIdentifier: "RankingCell")
         element.register(UITableViewCell.self, forCellReuseIdentifier: "CoinCell")
         element.register(UITableViewCell.self, forCellReuseIdentifier: "AdCell")
-        element.register(LoadMoreCell.self, forCellReuseIdentifier: "LoadMoreCell")
         
         element.refreshControl = self.refreshControl
         return element
@@ -58,12 +58,18 @@ class CoinListViewController: UIViewController {
         self.initUI()
         self.initLayoutConstraint()
         self.applyStyle()
-        self.interactor?.getCoinList(request: .init(keyword: self.searhBar.text ?? ""))
+        self.interactor.getCoinList(request: .init(keyword: self.searhBar.text ?? ""))
     }
 
 }
 // MARK: - Event Handler
-private extension CoinListViewController {}
+private extension CoinListViewController {
+    
+    @objc private func refreshData() {
+        self.interactor.getCoinList(request: .init(keyword: self.searhBar.text ?? ""))
+    }
+    
+}
 
 // MARK: - UI
 private extension CoinListViewController {
@@ -95,10 +101,6 @@ private extension CoinListViewController {
     func applyStyle() {
         self.view.backgroundColor = .white
     }
-    
-    @objc private func refreshData() {
-        self.interactor.getCoinList(request: .init(keyword: self.searhBar.text ?? ""))
-    }
 
 }
 
@@ -111,7 +113,6 @@ extension CoinListViewController: CoinListViewControllerDisplayLogic {
     }
 
     func displayCoinList(viewModel: CoinListModels.GetCoinList.ViewModel) {
-        self.items = viewModel.items
         DispatchQueue.main.async { [weak self] in
             self?.tableView.reloadData()
             self?.refreshControl.endRefreshing()
@@ -125,18 +126,28 @@ extension CoinListViewController: CoinListViewControllerDisplayLogic {
 }
 
 extension CoinListViewController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.searhBar.resignFirstResponder()
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.debouncer.execute { [weak self] in
+            guard let self = self else { return }
+            self.interactor.getCoinList(request: .init(keyword: self.searhBar.text ?? ""))
+        }
     }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        self.interactor.getCoinList(request: .init(keyword: self.searhBar.text ?? ""))
+    }
+    
 }
 
 extension CoinListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.items.count
+        return self.dataStore.displayCellItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = self.items[indexPath.row]
+        let item = self.dataStore.displayCellItems[indexPath.row]
         switch item {
         case .ranking(let coins):
             let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
@@ -158,8 +169,8 @@ extension CoinListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == self.items.count - 1 {
-            self.interactor.loadMore(request: .init(keyword: self.searhBar.text ?? ""))
+        if indexPath.row == self.dataStore.displayCellItems.count - 1 {
+            self.interactor?.loadMore(request: .init())
         }
     }
 
@@ -172,30 +183,4 @@ extension CoinListViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: - Private Method
 private extension CoinListViewController {
     
-}
-
-class LoadMoreCell: UITableViewCell {
-    private let activityIndicator = UIActivityIndicatorView(style: .gray)
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupView()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setupView()
-    }
-    
-    private func setupView() {
-        contentView.addSubview(activityIndicator)
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            activityIndicator.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
-        ])
-        
-        activityIndicator.startAnimating()
-    }
 }
