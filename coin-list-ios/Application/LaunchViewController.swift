@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LaunchViewController.swift
 //  coin-list-ios
 //
 //  Created by User on 8/6/2567 BE.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LaunchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -16,10 +16,16 @@ class CoinTableViewCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var changeLabel: UILabel!
     @IBOutlet weak var chanageImageView: UIImageView!
+    @IBOutlet weak var viewContainer: UIView!
+    @IBOutlet weak var shadowView: UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
+        DispatchQueue.main.async { [weak self] in
+            self?.viewContainer.cornerRadius = 8
+            self?.shadowView.addBottomShadow()
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
