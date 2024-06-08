@@ -11,9 +11,26 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.routeToMain()
     }
 
+
+    func routeToMain() {
+        guard
+            let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+        else {
+            return
+        }
+        
+        if let window = sceneDelegate.window {
+            window.rootViewController = CoinListViewController()
+            window.makeKeyAndVisible()
+        }
+    }
 
 }
 
