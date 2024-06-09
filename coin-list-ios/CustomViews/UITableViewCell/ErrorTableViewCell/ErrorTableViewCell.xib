@@ -33,6 +33,9 @@
                         <state key="normal" title="Try again">
                             <color key="titleColor" red="0.2196078431372549" green="0.62745098039215685" blue="1" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                         </state>
+                        <connections>
+                            <action selector="tryAgainButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="XNV-6O-ngw"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>

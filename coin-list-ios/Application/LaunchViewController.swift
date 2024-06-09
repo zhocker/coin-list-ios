@@ -58,7 +58,6 @@ class LaunchViewController: UIViewController {
         else {
             return
         }
-        
         if let window = sceneDelegate.window {
             window.rootViewController = CoinListRouter.createScene()
             window.makeKeyAndVisible()

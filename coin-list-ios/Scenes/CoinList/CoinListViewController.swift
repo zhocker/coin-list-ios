@@ -156,6 +156,7 @@ extension CoinListViewController: CoinListViewControllerDisplayLogic {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.view.makeToast("\(viewModel.message)", duration: 2.0, position: .bottom)
+            self.tableView.tableFooterView?.isHidden = true
         }
     }
 
@@ -229,10 +230,21 @@ extension CoinListViewController: UITableViewDelegate, UITableViewDataSource {
             }
         case .errorGetCoins:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "ErrorTableViewCell", for: indexPath) as? ErrorTableViewCell {
+                cell.callback = { [weak self] in
+                    guard let self = self else { return }
+                    self.interactor?.getCoinList(request: .init(keyword: self.searchBar.text ?? ""))
+                }
                 return cell
             }
         case .errorLoadMore:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "ErrorTableViewCell", for: indexPath) as? ErrorTableViewCell {
+                cell.callback = { [weak self] in
+                    guard let self = self else { return }
+                    DispatchQueue.main.async {
+                        self.tableView.tableFooterView?.isHidden = false
+                    }
+                    self.interactor?.loadMore(request: .init())
+                }
                 return cell
             }
         }
@@ -268,11 +280,8 @@ extension CoinListViewController: UITableViewDelegate, UITableViewDataSource {
             self.router.shareText(invitationText: attributedString.string)
             break
         case .errorGetCoins:
-            self.interactor?.getCoinList(request: .init(keyword: self.searchBar.text ?? ""))
             break
         case .errorLoadMore:
-            self.tableView.tableFooterView?.isHidden = false
-            self.interactor?.loadMore(request: .init())
             break
         }
     }

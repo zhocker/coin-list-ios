@@ -26,7 +26,7 @@ class CoinListWorker: CoinListWorkerProtocol {
                 do {
                     let response = try JSONDecoder().decode(CoinsResponse.self, from: response.data)
                     guard let coins = response.data?.coins else {
-                        completion([], nil)
+                        completion([], AppError(message: "Something went wrong"))
                         return
                     }
                     completion(coins, nil)

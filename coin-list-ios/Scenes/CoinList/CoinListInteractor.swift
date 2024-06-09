@@ -60,6 +60,10 @@ class CoinListInteractor: CoinListInteractorBusinessLogic {
         guard !self.isLoading else { return }
         self.isLoading = true
         let keyword: String = self.keyword
+        
+        self.items = self.worker.generateDisplayCellItems(keyword: keyword, coins: self.coins)
+        self.presenter?.performPresentCoinList(response: .init(items: self.items))
+
         self.worker.fetchCoins(offset: self.coins.count, keyword: keyword) { [weak self] coins, error in
             guard let self = self else { return }
             self.isLoading = false
