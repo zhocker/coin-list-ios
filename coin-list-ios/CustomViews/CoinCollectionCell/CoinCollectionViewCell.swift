@@ -21,8 +21,11 @@ class CoinCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         DispatchQueue.main.async { [weak self] in
-            self?.viewContainer.cornerRadius = 8
-            self?.shadowView.addBottomShadow()
+            guard let self = self else { return }
+            guard let viewContainer = self.viewContainer else { return }
+            guard let shadowView = self.shadowView else { return }
+            viewContainer.cornerRadius = 8
+            shadowView.addBottomShadow()
         }
     }
     

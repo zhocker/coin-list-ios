@@ -11,6 +11,7 @@ import UIKit
 protocol CoinListRouterRoutingLogic {
     static func createScene() -> CoinListViewController
     func shareText(invitationText: String)
+    func routeToCoinDetail(coin: Coin)
 }
 
 class CoinListRouter: CoinListRouterRoutingLogic {    
@@ -44,6 +45,14 @@ class CoinListRouter: CoinListRouterRoutingLogic {
                 popoverPresentationController.permittedArrowDirections = []
             }
             viewController.present(activityViewController, animated: true, completion: nil)
+        }
+    }
+    
+    func routeToCoinDetail(coin: Coin) {
+        guard let viewController = self.viewController else { return }
+        DispatchQueue.main.async {
+            let vc = CoinDetailRouter.createScene(coin: coin)
+            viewController.present(vc, animated: true)
         }
     }
     

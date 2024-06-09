@@ -9,19 +9,23 @@ import Foundation
 import UIKit
 
 protocol CoinDetailRouterRoutingLogic {
-    static func createScene() -> CoinDetailViewController
+    static func createScene(coin: Coin) -> CoinDetailViewController
 }
 
 class CoinDetailRouter: CoinDetailRouterRoutingLogic {    
     weak var viewController: CoinDetailViewController?
 
-    static func createScene() -> CoinDetailViewController {
+    static func createScene(coin: Coin) -> CoinDetailViewController {
         let viewController = CoinDetailViewController()
         let interactor = CoinDetailInteractor()
         let presenter = CoinDetailPresenter()
         let router = CoinDetailRouter()
-
+        
         viewController.interactor = interactor
+        viewController.dataStore = interactor
+
+        viewController.dataStore.displayCoin = coin
+        
         viewController.router = router
         interactor.presenter = presenter
         presenter.viewController = viewController

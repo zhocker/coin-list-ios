@@ -49,6 +49,8 @@
 		CE9BC7492C14B42B0047635D /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC7482C14B42B0047635D /* UIColor+Hex.swift */; };
 		CE9BC74E2C14C1430047635D /* CoinCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC74C2C14C1430047635D /* CoinCollectionViewCell.swift */; };
 		CE9BC74F2C14C1430047635D /* CoinCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE9BC74D2C14C1430047635D /* CoinCollectionViewCell.xib */; };
+		CE9BC7522C156BCE0047635D /* CoinDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC7512C156BCE0047635D /* CoinDetailHeaderView.swift */; };
+		CE9BC7542C15709C0047635D /* CoinDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE9BC7532C15709C0047635D /* CoinDetailHeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +122,8 @@
 		CE9BC7482C14B42B0047635D /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		CE9BC74C2C14C1430047635D /* CoinCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE9BC74D2C14C1430047635D /* CoinCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinCollectionViewCell.xib; sourceTree = "<group>"; };
+		CE9BC7512C156BCE0047635D /* CoinDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailHeaderView.swift; sourceTree = "<group>"; };
+		CE9BC7532C15709C0047635D /* CoinDetailHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinDetailHeaderView.xib; sourceTree = "<group>"; };
 		DB8133416DD8C8C12F3B47EB /* Pods-coin-list-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coin-list-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-coin-list-iosTests/Pods-coin-list-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -296,6 +300,7 @@
 		CE9BC71D2C144E490047635D /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				CE9BC7502C156BBD0047635D /* CoinDetailHeaderView */,
 				CE9BC7322C1468980047635D /* TitleTableViewCell */,
 				CE9BC7202C1457160047635D /* CoinTableViewCell */,
 				CE9BC73F2C14B0480047635D /* InviteFriendCell */,
@@ -383,6 +388,15 @@
 				CE9BC74D2C14C1430047635D /* CoinCollectionViewCell.xib */,
 			);
 			path = CoinCollectionCell;
+			sourceTree = "<group>";
+		};
+		CE9BC7502C156BBD0047635D /* CoinDetailHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				CE9BC7512C156BCE0047635D /* CoinDetailHeaderView.swift */,
+				CE9BC7532C15709C0047635D /* CoinDetailHeaderView.xib */,
+			);
+			path = CoinDetailHeaderView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -499,6 +513,7 @@
 				CE9BC7432C14B06D0047635D /* InviteFriendTableViewCell.xib in Resources */,
 				CE9BC74F2C14C1430047635D /* CoinCollectionViewCell.xib in Resources */,
 				CE9BC6DE2C1416420047635D /* LaunchScreen.storyboard in Resources */,
+				CE9BC7542C15709C0047635D /* CoinDetailHeaderView.xib in Resources */,
 				CE9BC6DB2C1416410047635D /* Assets.xcassets in Resources */,
 				CE9BC7242C14573C0047635D /* CoinTableViewCell.xib in Resources */,
 				CE9BC6D92C1416400047635D /* Main.storyboard in Resources */,
@@ -636,6 +651,7 @@
 				CE9BC7492C14B42B0047635D /* UIColor+Hex.swift in Sources */,
 				CE9BC7182C142D540047635D /* CoinsResponse.swift in Sources */,
 				CE9BC72C2C1466020047635D /* RankingTableViewCell.swift in Sources */,
+				CE9BC7522C156BCE0047635D /* CoinDetailHeaderView.swift in Sources */,
 				CE9BC71C2C142E470047635D /* Stats.swift in Sources */,
 				CE9BC6D62C1416400047635D /* LaunchViewController.swift in Sources */,
 				CE9BC70E2C14210F0047635D /* CoinListWorker.swift in Sources */,

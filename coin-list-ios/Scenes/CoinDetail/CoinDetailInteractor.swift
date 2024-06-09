@@ -10,20 +10,18 @@ import UIKit
 
 protocol CoinDetailInteractorBusinessLogic: AnyObject {}
 
-protocol CoinDetailInteractorDataStore: AnyObject {}
+protocol CoinDetailInteractorDataStore: AnyObject {
+    var displayCoin: Coin? { get set }
+}
 
 // MARK: - Interactor
-class CoinDetailInteractor: CoinDetailInteractorBusinessLogic {
+class CoinDetailInteractor: CoinDetailInteractorBusinessLogic, CoinDetailInteractorDataStore {
     var presenter: CoinDetailPresentationLogic?
     var worker = CoinDetailWorker()
+    var displayCoin: Coin? = nil
 }
 
 // MARK: - Private functions
 private extension CoinDetailInteractor {
-
-}
-
-// MARK: - Data Store
-extension CoinDetailInteractor: CoinDetailInteractorDataStore {
 
 }
