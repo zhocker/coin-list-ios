@@ -18,6 +18,7 @@ class RankingTableViewCell: UITableViewCell {
         super.awakeFromNib()
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+        self.collectionView.isScrollEnabled = false
         self.collectionView.register(UINib(nibName: "CoinCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CoinCollectionViewCell")
     }
 
@@ -50,7 +51,7 @@ extension RankingTableViewCell: UICollectionViewDelegate, UICollectionViewDataSo
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let padding: CGFloat = 8
-        let availableWidth = collectionView.frame.width - (padding * 4)
+        let availableWidth = collectionView.frame.width - (padding * 4) + 30
         let widthPerItem = availableWidth / 3
         let aspectRatio: CGFloat = 144.00/110.00
 

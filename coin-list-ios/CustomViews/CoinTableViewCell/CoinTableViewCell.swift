@@ -36,7 +36,11 @@ class CoinTableViewCell: UITableViewCell {
         
     func config(coinViewModel: CoinViewModel) {
         if let url = URL(string: coinViewModel.iconUrl)  {
-            coinImageView.kf.setImage(with: url)
+            if url.lastPathComponent.contains(".svg") {
+                coinImageView.loadSVG(from: url)
+            } else {
+                coinImageView.kf.setImage(with: url)
+            }
         } else {
             coinImageView.image = nil
         }

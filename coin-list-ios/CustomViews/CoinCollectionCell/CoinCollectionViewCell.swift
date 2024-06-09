@@ -22,16 +22,18 @@ class CoinCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            guard let viewContainer = self.viewContainer else { return }
-            guard let shadowView = self.shadowView else { return }
-            viewContainer.cornerRadius = 8
-            shadowView.addBottomShadow()
+            self.viewContainer.cornerRadius = 8
+            self.shadowView.addBottomShadow()
         }
     }
         
     func config(coinViewModel: CoinViewModel) {
         if let url = URL(string: coinViewModel.iconUrl)  {
-            coinImageView.kf.setImage(with: url)
+            if url.lastPathComponent.contains(".svg") {
+                coinImageView.loadSVG(from: url)
+            } else {
+                coinImageView.kf.setImage(with: url)
+            }
         } else {
             coinImageView.image = nil
         }

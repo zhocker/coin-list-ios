@@ -44,7 +44,7 @@ class CoinListWorker: CoinListWorkerProtocol {
         
         var items: [CoinViewModel] = coins.map({ convertCoinToCoinViewModel(coin: $0) })
         var displayCellItems: [CoinListModels.DisplayCellItem] = []
-        let topRankCoins: [CoinViewModel] = Array(items.prefix(5))
+        let topRankCoins: [CoinViewModel] = Array(items.prefix(3))
         if keyword.isEmpty && !topRankCoins.isEmpty {
             displayCellItems.append(.ranking(generateTopRankingTitle(amount: topRankCoins.count), topRankCoins))
             items = Array(items.dropFirst(topRankCoins.count))

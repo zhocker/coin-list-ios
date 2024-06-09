@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VmS-bo-Ar3">
-                        <rect key="frame" x="0.0" y="0.0" width="110" height="140"/>
+                        <rect key="frame" x="0.0" y="0.0" width="110" height="142"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -116,7 +116,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Svc-KT-egh" secondAttribute="bottom" constant="4" id="8fn-7m-Lu2"/>
-                <constraint firstAttribute="bottom" secondItem="VmS-bo-Ar3" secondAttribute="bottom" constant="4" id="BZO-mb-rFu"/>
+                <constraint firstAttribute="bottom" secondItem="VmS-bo-Ar3" secondAttribute="bottom" constant="2" id="BZO-mb-rFu"/>
                 <constraint firstItem="VmS-bo-Ar3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ZRW-SH-RfR"/>
                 <constraint firstItem="Svc-KT-egh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="gy6-Jy-CX4"/>
                 <constraint firstAttribute="trailing" secondItem="Svc-KT-egh" secondAttribute="trailing" id="rHb-C4-r39"/>

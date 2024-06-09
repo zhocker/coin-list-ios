@@ -9,7 +9,8 @@ target 'coin-list-ios' do
   pod 'IQKeyboardManager'
   pod 'Kingfisher'
   pod 'ProgressHUD'
-  
+  pod 'SwiftDraw'
+
   target 'coin-list-iosTests' do
     inherit! :search_paths
     # Pods for testing
