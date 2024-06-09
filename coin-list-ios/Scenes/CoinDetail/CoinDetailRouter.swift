@@ -10,6 +10,7 @@ import UIKit
 
 protocol CoinDetailRouterRoutingLogic {
     static func createScene(coinViewModel: CoinViewModel) -> CoinDetailViewController
+    func openExternalBrowser(urlString: String)
 }
 
 class CoinDetailRouter: CoinDetailRouterRoutingLogic {    
@@ -32,5 +33,11 @@ class CoinDetailRouter: CoinDetailRouterRoutingLogic {
         router.viewController = viewController
 
         return viewController
+    }
+    
+    func openExternalBrowser(urlString: String) {
+        if let url = URL(string: urlString), UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        }
     }
 }

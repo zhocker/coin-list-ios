@@ -93,9 +93,7 @@ class CoinDetailViewController: UIViewController {
 private extension CoinDetailViewController {
     
     @objc private func websiteButtonTapped() {
-        if let url = URL(string: self.dataStore.websiteUrl) {
-            UIApplication.shared.open(url)
-        }
+        self.router.openExternalBrowser(urlString: self.dataStore.websiteUrl)
     }
     
     @objc private func closeButtonTapped() {
@@ -183,16 +181,18 @@ extension CoinDetailViewController: CoinDetailViewControllerDisplayLogic {
     func displayErrorDialog(viewModel: CoinDetailModels.PresentErrorDialog.ViewModel) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            self.view.makeToast("\(viewModel.message)", duration: 2.0, position: .bottom)
+            self.view.makeToast("\(viewModel.message)", duration: AppConstant.DEFAULT_DISPLAY_TOAST_DURATION, position: .bottom)
         }
     }
     
     func displayCoinDetail(viewModel: CoinDetailModels.GetCoinDetail.ViewModel) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            self.headerView.config(coinDetailViewModel: viewModel.coin)
-            self.contentLabel.text = viewModel.coin.description
-            self.websiteButton.isHidden = false
+            UIView.animate(withDuration: AppConstant.DEFAULT_ANIMATE_DURATION) {
+                self.headerView.config(coinDetailViewModel: viewModel.coin)
+                self.contentLabel.text = viewModel.coin.description
+                self.websiteButton.isHidden = false
+            }
         }
     }
 

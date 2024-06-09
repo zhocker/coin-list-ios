@@ -34,17 +34,17 @@ class LaunchViewController: UIViewController {
     }
     
     private func start() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.25) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + AppConstant.DEFAULT_DELAY) { [weak self] in
             guard let self = self else { return }
             self.dimissLottieView()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + AppConstant.DEFAULT_DELAY) {
                 self.routeToMain()
             }
         }
     }
     
     private func dimissLottieView() {
-        UIView.animate(withDuration: 0.5, animations: {
+        UIView.animate(withDuration: AppConstant.DEFAULT_ANIMATE_DURATION, animations: {
             self.loadingView.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
             self.loadingView.alpha = 0
         }) { _ in
