@@ -50,10 +50,16 @@ class CoinDetailViewController: UIViewController {
     lazy var websiteButton: UIButton = {
         let element = UIButton(type: .system)
         element.setTitle("GO TO WEBSITE", for: .normal)
-        element.setTitleColor(.systemBlue, for: .normal)
+        element.setTitleColor(UIColor.color(with: "#38A0FF"), for: .normal)
         element.titleLabel?.font = .boldSystemFont(ofSize: 14)
         element.addTarget(self, action: #selector(websiteButtonTapped), for: .touchUpInside)
         element.isHidden = true
+        return element
+    }()
+    
+    lazy var backgroundButton: UIButton = {
+        let element = UIButton(type: .custom)
+        element.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
         return element
     }()
     
@@ -73,6 +79,7 @@ class CoinDetailViewController: UIViewController {
         let element = UIButton(type: .custom)
         element.setImage(UIImage(named: "icon-close"), for: .normal)
         element.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
+        element.backgroundColor = .clear
         return element
     }()
     
@@ -107,11 +114,16 @@ private extension CoinDetailViewController {
 
     func initUI() {
         self.view.addSubview(viewContainer)
+        self.view.addSubview(backgroundButton)
         self.view.addSubview(stackView)
         self.view.addSubview(closeButton)
     }
     
     func initLayoutConstraint() {
+        
+        backgroundButton.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         
         closeButton.snp.makeConstraints { make in
             make.top.equalTo(viewContainer.snp.top).offset(16)
