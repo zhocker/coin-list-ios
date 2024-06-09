@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Toast_Swift
 
 protocol CoinListViewControllerDisplayLogic: AnyObject {
     func displayErrorDialog(viewModel: CoinListModels.PresentErrorDialog.ViewModel)
@@ -71,15 +72,23 @@ class CoinListViewController: UIViewController {
         element.register(UINib(nibName: "TitleTableViewCell", bundle: nil), forCellReuseIdentifier: "TitleTableViewCell")
         element.register(UINib(nibName: "RankingTableViewCell", bundle: nil), forCellReuseIdentifier: "RankingTableViewCell")
         element.register(UINib(nibName: "CoinTableViewCell", bundle: nil), forCellReuseIdentifier: "CoinTableViewCell")
-
+        element.register(UINib(nibName: "ErrorTableViewCell", bundle: nil), forCellReuseIdentifier: "ErrorTableViewCell")
+        
+        let footerView = LoadMoreFooterView(frame: CGRect(x: 0, y: 0, width: element.frame.width, height: 50))
+        element.tableFooterView = footerView
+        
         return element
         
     }()
     
-    lazy var refreshControl: UIRefreshControl = {
-        let element = UIRefreshControl()
-        element.tintColor = .blue
+    lazy var refreshControl: CustomRefreshControl = {
+        let element = CustomRefreshControl()
         return element
+    }()
+    
+    lazy var loadMoreFooterView: LoadMoreFooterView = {
+        let footerView = LoadMoreFooterView()
+        return footerView
     }()
     
     override func viewDidLoad() {
@@ -144,7 +153,10 @@ extension CoinListViewController: CoinListViewControllerDisplayLogic {
     
 
     func displayErrorDialog(viewModel: CoinListModels.PresentErrorDialog.ViewModel) {
-        debugPrint("Error na!")
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.view.makeToast("\(viewModel.message)", duration: 2.0, position: .bottom)
+        }
     }
 
     func displayCoinList(viewModel: CoinListModels.GetCoinList.ViewModel) {
@@ -153,6 +165,7 @@ extension CoinListViewController: CoinListViewControllerDisplayLogic {
             self?.emptyView.isHidden = true
             self?.tableView.reloadData()
             self?.refreshControl.endRefreshing()
+            self?.tableView.tableFooterView?.isHidden = true
         }
     }
     
@@ -161,6 +174,7 @@ extension CoinListViewController: CoinListViewControllerDisplayLogic {
             self?.tableView.isHidden = true
             self?.emptyView.isHidden = false
             self?.refreshControl.endRefreshing()
+            self?.tableView.tableFooterView?.isHidden = true
         }
     }
 
@@ -213,6 +227,14 @@ extension CoinListViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.config(attributedString: attributedString)
                 return cell
             }
+        case .errorGetCoins:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "ErrorTableViewCell", for: indexPath) as? ErrorTableViewCell {
+                return cell
+            }
+        case .errorLoadMore:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "ErrorTableViewCell", for: indexPath) as? ErrorTableViewCell {
+                return cell
+            }
         }
         
         return UITableViewCell()
@@ -220,8 +242,16 @@ extension CoinListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == self.dataStore.displayCellItems.count - 1 {
-            self.interactor?.loadMore(request: .init())
+            let item = self.dataStore.displayCellItems[indexPath.row]
+            switch item {
+            case .errorGetCoins,.errorLoadMore:
+                break
+            default:
+                self.tableView.tableFooterView?.isHidden = false
+                self.interactor?.loadMore(request: .init())
+            }
         }
+
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -236,6 +266,13 @@ extension CoinListViewController: UITableViewDelegate, UITableViewDataSource {
             break
         case .inviteFriend(let attributedString):
             self.router.shareText(invitationText: attributedString.string)
+            break
+        case .errorGetCoins:
+            self.interactor?.getCoinList(request: .init(keyword: self.searchBar.text ?? ""))
+            break
+        case .errorLoadMore:
+            self.tableView.tableFooterView?.isHidden = false
+            self.interactor?.loadMore(request: .init())
             break
         }
     }

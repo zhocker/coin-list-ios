@@ -40,13 +40,15 @@ class CoinListInteractor: CoinListInteractorBusinessLogic {
             guard let self = self else { return }
             self.isLoading = false
             if let error = error {
+                self.items = self.worker.generateGetCoinsErrorCellItems()
                 self.presenter?.performPresentErrorDialog(response: .init(error: error))
+                self.presenter?.performPresentCoinList(response: .init(items: items))
             } else {
                 self.coins.append(contentsOf: coins)
                 if self.coins.isEmpty {
                     self.presenter?.performPresentEmptyState(response: .init())
                 } else {
-                    items = self.worker.generateDisplayCellItems(keyword: request.keyword, coins: self.coins)
+                    self.items = self.worker.generateDisplayCellItems(keyword: request.keyword, coins: self.coins)
                     self.presenter?.performPresentCoinList(response: .init(items: items))
                 }
             }
@@ -62,11 +64,13 @@ class CoinListInteractor: CoinListInteractorBusinessLogic {
             guard let self = self else { return }
             self.isLoading = false
             if let error = error {
+                self.items = self.worker.generateLoadMoreErrorCellItems(keyword: keyword, coins: self.coins)
+                self.presenter?.performPresentCoinList(response: .init(items: self.items))
                 self.presenter?.performPresentErrorDialog(response: .init(error: error))
             } else {
                 self.coins.append(contentsOf: coins)
                 self.items = self.worker.generateDisplayCellItems(keyword: keyword, coins: self.coins)
-                self.presenter?.performPresentCoinList(response: .init(items: items))
+                self.presenter?.performPresentCoinList(response: .init(items: self.items))
             }
         }
     }

@@ -15,6 +15,8 @@ enum CoinListModels {
         case title(String)
         case coin(CoinViewModel)
         case inviteFriend(NSAttributedString)
+        case errorGetCoins
+        case errorLoadMore
     }
 
     enum GetCoinList {

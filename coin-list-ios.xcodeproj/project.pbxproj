@@ -59,6 +59,11 @@
 		CE9BC7632C15887C0047635D /* CoinDetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC7622C15887C0047635D /* CoinDetailData.swift */; };
 		CE9BC7672C15920A0047635D /* UIImageView+SVG.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC7662C15920A0047635D /* UIImageView+SVG.swift */; };
 		CE9BC76A2C159A140047635D /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC7692C159A140047635D /* AppError.swift */; };
+		CE9BC76D2C159D0B0047635D /* ErrorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC76B2C159D0B0047635D /* ErrorTableViewCell.swift */; };
+		CE9BC76E2C159D0B0047635D /* ErrorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE9BC76C2C159D0B0047635D /* ErrorTableViewCell.xib */; };
+		CE9BC7712C15B2650047635D /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC7702C15B2650047635D /* UIView+Animation.swift */; };
+		CE9BC7742C15B58B0047635D /* CustomRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC7732C15B58B0047635D /* CustomRefreshControl.swift */; };
+		CE9BC7772C15B5BD0047635D /* LoadMoreFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC7762C15B5BD0047635D /* LoadMoreFooterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +145,11 @@
 		CE9BC7622C15887C0047635D /* CoinDetailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailData.swift; sourceTree = "<group>"; };
 		CE9BC7662C15920A0047635D /* UIImageView+SVG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+SVG.swift"; sourceTree = "<group>"; };
 		CE9BC7692C159A140047635D /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		CE9BC76B2C159D0B0047635D /* ErrorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorTableViewCell.swift; sourceTree = "<group>"; };
+		CE9BC76C2C159D0B0047635D /* ErrorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorTableViewCell.xib; sourceTree = "<group>"; };
+		CE9BC7702C15B2650047635D /* UIView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
+		CE9BC7732C15B58B0047635D /* CustomRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRefreshControl.swift; sourceTree = "<group>"; };
+		CE9BC7762C15B5BD0047635D /* LoadMoreFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadMoreFooterView.swift; sourceTree = "<group>"; };
 		DB8133416DD8C8C12F3B47EB /* Pods-coin-list-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coin-list-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-coin-list-iosTests/Pods-coin-list-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -316,12 +326,10 @@
 		CE9BC71D2C144E490047635D /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				CE9BC7502C156BBD0047635D /* CoinDetailHeaderView */,
-				CE9BC7322C1468980047635D /* TitleTableViewCell */,
-				CE9BC7202C1457160047635D /* CoinTableViewCell */,
-				CE9BC73F2C14B0480047635D /* InviteFriendCell */,
-				CE9BC7292C1465ED0047635D /* RankingTableViewCell */,
-				CE9BC74B2C14C1150047635D /* CoinCollectionCell */,
+				CE9BC7792C15B5D80047635D /* UITableViewCell */,
+				CE9BC77A2C15B5E10047635D /* UICollectionViewCell */,
+				CE9BC7782C15B5D10047635D /* UIView */,
+				CE9BC77B2C15B5E90047635D /* UIRefreshControl */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -385,6 +393,7 @@
 				CE9BC7462C14B2C00047635D /* UIView+Layer.swift */,
 				CE9BC7482C14B42B0047635D /* UIColor+Hex.swift */,
 				CE9BC7662C15920A0047635D /* UIImageView+SVG.swift */,
+				CE9BC7702C15B2650047635D /* UIView+Animation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -453,6 +462,68 @@
 				CE9BC7692C159A140047635D /* AppError.swift */,
 			);
 			path = AppError;
+			sourceTree = "<group>";
+		};
+		CE9BC76F2C159D100047635D /* ErrorTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				CE9BC76B2C159D0B0047635D /* ErrorTableViewCell.swift */,
+				CE9BC76C2C159D0B0047635D /* ErrorTableViewCell.xib */,
+			);
+			path = ErrorTableViewCell;
+			sourceTree = "<group>";
+		};
+		CE9BC7722C15B57A0047635D /* CustomRefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				CE9BC7732C15B58B0047635D /* CustomRefreshControl.swift */,
+			);
+			path = CustomRefreshControl;
+			sourceTree = "<group>";
+		};
+		CE9BC7752C15B5A40047635D /* LoadMoreFooterView */ = {
+			isa = PBXGroup;
+			children = (
+				CE9BC7762C15B5BD0047635D /* LoadMoreFooterView.swift */,
+			);
+			path = LoadMoreFooterView;
+			sourceTree = "<group>";
+		};
+		CE9BC7782C15B5D10047635D /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				CE9BC7502C156BBD0047635D /* CoinDetailHeaderView */,
+				CE9BC7752C15B5A40047635D /* LoadMoreFooterView */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		CE9BC7792C15B5D80047635D /* UITableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				CE9BC7322C1468980047635D /* TitleTableViewCell */,
+				CE9BC7202C1457160047635D /* CoinTableViewCell */,
+				CE9BC73F2C14B0480047635D /* InviteFriendCell */,
+				CE9BC7292C1465ED0047635D /* RankingTableViewCell */,
+				CE9BC76F2C159D100047635D /* ErrorTableViewCell */,
+			);
+			path = UITableViewCell;
+			sourceTree = "<group>";
+		};
+		CE9BC77A2C15B5E10047635D /* UICollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				CE9BC74B2C14C1150047635D /* CoinCollectionCell */,
+			);
+			path = UICollectionViewCell;
+			sourceTree = "<group>";
+		};
+		CE9BC77B2C15B5E90047635D /* UIRefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				CE9BC7722C15B57A0047635D /* CustomRefreshControl */,
+			);
+			path = UIRefreshControl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -564,6 +635,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE9BC76E2C159D0B0047635D /* ErrorTableViewCell.xib in Resources */,
 				CE9BC7312C1468930047635D /* TitleTableViewCell.xib in Resources */,
 				CE9BC72D2C1466020047635D /* RankingTableViewCell.xib in Resources */,
 				CE9BC7432C14B06D0047635D /* InviteFriendTableViewCell.xib in Resources */,
@@ -702,6 +774,7 @@
 			files = (
 				CE9BC71A2C142E150047635D /* CoinData.swift in Sources */,
 				CE9BC7122C14210F0047635D /* CoinListInteractor.swift in Sources */,
+				CE9BC76D2C159D0B0047635D /* ErrorTableViewCell.swift in Sources */,
 				CE9BC7422C14B06D0047635D /* InviteFriendTableViewCell.swift in Sources */,
 				CE9BC75F2C15883D0047635D /* CoinDetailResponse.swift in Sources */,
 				CE9BC74E2C14C1430047635D /* CoinCollectionViewCell.swift in Sources */,
@@ -723,11 +796,14 @@
 				CE9BC70F2C14210F0047635D /* CoinListRouter.swift in Sources */,
 				CE9BC6D42C1416400047635D /* SceneDelegate.swift in Sources */,
 				CE9BC75B2C1586670047635D /* CoinViewModelFormatter.swift in Sources */,
+				CE9BC7742C15B58B0047635D /* CustomRefreshControl.swift in Sources */,
 				CE9BC70D2C14210F0047635D /* CoinListPresenter.swift in Sources */,
 				CE9BC7672C15920A0047635D /* UIImageView+SVG.swift in Sources */,
+				CE9BC7772C15B5BD0047635D /* LoadMoreFooterView.swift in Sources */,
 				CE9BC73B2C14B0250047635D /* CoinDetailRouter.swift in Sources */,
 				CE9BC7142C14251A0047635D /* Coin.swift in Sources */,
 				CE9BC7632C15887C0047635D /* CoinDetailData.swift in Sources */,
+				CE9BC7712C15B2650047635D /* UIView+Animation.swift in Sources */,
 				CE9BC7102C14210F0047635D /* CoinListModels.swift in Sources */,
 				CE9BC7472C14B2C00047635D /* UIView+Layer.swift in Sources */,
 				CE9BC7232C14573C0047635D /* CoinTableViewCell.swift in Sources */,

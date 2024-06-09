@@ -11,6 +11,8 @@ import Moya
 protocol CoinListWorkerProtocol: AnyObject {
     func fetchCoins(limit: Int, offset: Int, keyword: String, completion: @escaping ([Coin], Error?) -> Void)
     func generateDisplayCellItems(keyword: String, coins: [Coin]) -> [CoinListModels.DisplayCellItem]
+    func generateGetCoinsErrorCellItems() -> [CoinListModels.DisplayCellItem]
+    func generateLoadMoreErrorCellItems(keyword: String, coins: [Coin]) -> [CoinListModels.DisplayCellItem]
 }
 
 class CoinListWorker: CoinListWorkerProtocol {
@@ -56,6 +58,19 @@ class CoinListWorker: CoinListWorkerProtocol {
                 displayCellItems.append(.inviteFriend(self.generateInviteFriendText()))
             }
         }
+        return displayCellItems
+    }
+    
+    func generateGetCoinsErrorCellItems() -> [CoinListModels.DisplayCellItem] {
+        var displayCellItems: [CoinListModels.DisplayCellItem] = []
+        displayCellItems.append(.title("Buy, sell and hold crypto"))
+        displayCellItems.append(.errorGetCoins)
+        return displayCellItems
+    }
+    
+    func generateLoadMoreErrorCellItems(keyword: String, coins: [Coin]) -> [CoinListModels.DisplayCellItem] {
+        var displayCellItems: [CoinListModels.DisplayCellItem] = generateDisplayCellItems(keyword: keyword, coins: coins)
+        displayCellItems.append(.errorLoadMore)
         return displayCellItems
     }
     
