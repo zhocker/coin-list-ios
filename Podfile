@@ -8,9 +8,9 @@ target 'coin-list-ios' do
   pod 'Moya'
   pod 'IQKeyboardManager'
   pod 'Kingfisher'
-  pod 'ProgressHUD'
   pod 'SwiftDraw'
   pod 'Toast-Swift'
+  pod 'lottie-ios'
 
   target 'coin-list-iosTests' do
     inherit! :search_paths
