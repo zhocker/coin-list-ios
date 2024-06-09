@@ -97,6 +97,7 @@ class CoinListViewController: UIViewController {
         self.initUI()
         self.initLayoutConstraint()
         self.applyStyle()
+        self.interactor.handleFooterView(request: .init(isHidden: false))
         self.interactor.getCoinList(request: .init(keyword: self.searchBar.text ?? ""))
     }
 

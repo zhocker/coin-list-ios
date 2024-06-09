@@ -32,6 +32,7 @@ class CustomRefreshControl: UIRefreshControl {
             make.height.width.equalTo(48)
             make.center.equalToSuperview()
         }
+        self.loadingImageView.startRotating()
         addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
 
