@@ -52,7 +52,7 @@ class CoinDetailWorker: CoinDetailWorkerProtocol {
                                    description: coin.description ?? "",
                                    marketCap: displayMarketCap,
                                    websiteUrl: coin.websiteUrl ?? "https://coinranking.com/",
-                                   color: coin.color ?? "#000000")
+                                   color: coin.color ?? HexConstant.black)
     }
 
 

@@ -37,7 +37,7 @@ class CoinDetailInteractor: CoinDetailInteractorBusinessLogic, CoinDetailInterac
             } else if let error = error {
                 self.presenter?.performPresentErrorDialog(response: .init(error: error))
             } else {
-                let error = AppError(message: "Something went wrong.")
+                let error = AppError(message: "Something went wrong. Please try again.")
                 self.presenter?.performPresentErrorDialog(response: .init(error: error))
             }
         }

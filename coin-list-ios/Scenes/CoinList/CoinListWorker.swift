@@ -26,7 +26,7 @@ class CoinListWorker: CoinListWorkerProtocol {
                 do {
                     let response = try JSONDecoder().decode(CoinsResponse.self, from: response.data)
                     guard let coins = response.data?.coins else {
-                        completion([], AppError(message: "Something went wrong"))
+                        completion([], AppError(message: "Something went wrong. Please try again."))
                         return
                     }
                     completion(coins, nil)
@@ -83,7 +83,7 @@ class CoinListWorker: CoinListWorkerProtocol {
         
         if let inviteRange = invitationText.range(of: "Invite your friend") {
             let nsInviteRange = NSRange(inviteRange, in: invitationText)
-            attributedString.addAttribute(.foregroundColor, value: UIColor.color(with: "#38A0FF"), range: nsInviteRange)
+            attributedString.addAttribute(.foregroundColor, value: UIColor.ciBlue, range: nsInviteRange)
             attributedString.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 16), range: nsInviteRange)
         }
         return attributedString
@@ -98,7 +98,7 @@ class CoinListWorker: CoinListWorkerProtocol {
         
         if let inviteRange = invitationText.range(of: "\(amount)") {
             let nsInviteRange = NSRange(inviteRange, in: invitationText)
-            attributedString.addAttribute(.foregroundColor, value: UIColor.color(with: "#C52221"), range: nsInviteRange)
+            attributedString.addAttribute(.foregroundColor, value: UIColor.ciDarkRed, range: nsInviteRange)
             attributedString.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 16), range: nsInviteRange)
         }
         return attributedString

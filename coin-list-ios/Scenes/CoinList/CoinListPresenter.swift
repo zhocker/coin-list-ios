@@ -22,7 +22,7 @@ class CoinListPresenter: CoinListPresentationLogic {
 
     func performPresentErrorDialog(response: CoinListModels.PresentErrorDialog.Response) {
         viewController?.displayErrorDialog(viewModel: .init(title: "Oops!",
-                                                            message: response.error?.localizedDescription ?? "Something went wrong."))
+                                                            message: response.error?.localizedDescription ?? "Something went wrong. Please try again."))
     }
     
     func performPresentCoinList(response: CoinListModels.GetCoinList.Response) {

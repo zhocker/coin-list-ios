@@ -50,15 +50,15 @@ class CoinViewModelFormatter {
     
     func determineChangeColorAndIcon(change: String?) -> (changeColor: String, changeIcon: String) {
         guard let change = change else {
-            return ("#000000", "")
+            return (HexConstant.black, "")
         }
         
         if change.contains("-") {
-            return ("#F82D2D", "icon-arrow-down")
+            return (HexConstant.ciRed, "icon-arrow-down")
         } else if change == "0.00" {
-            return ("#000000", "")
+            return (HexConstant.black, "")
         } else {
-            return ("#13BC24", "icon-arrow-up")
+            return (HexConstant.ciGreen, "icon-arrow-up")
         }
     }
     

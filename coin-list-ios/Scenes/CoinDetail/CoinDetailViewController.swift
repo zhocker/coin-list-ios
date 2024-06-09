@@ -43,14 +43,14 @@ class CoinDetailViewController: UIViewController {
     
     lazy var lineView: UIView = {
         let element = UIView()
-        element.backgroundColor = UIColor.color(with: "#EEEEEE")
+        element.backgroundColor = UIColor.ciLightGrey
         return element
     }()
     
     lazy var websiteButton: UIButton = {
         let element = UIButton(type: .system)
         element.setTitle("GO TO WEBSITE", for: .normal)
-        element.setTitleColor(UIColor.color(with: "#38A0FF"), for: .normal)
+        element.setTitleColor(UIColor.ciBlue, for: .normal)
         element.titleLabel?.font = .boldSystemFont(ofSize: 14)
         element.addTarget(self, action: #selector(websiteButtonTapped), for: .touchUpInside)
         element.isHidden = true

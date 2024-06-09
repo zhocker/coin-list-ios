@@ -32,6 +32,8 @@ class CoinListViewController: UIViewController {
     lazy var searchBar: UISearchBar = {
         let element = UISearchBar()
         element.delegate = self
+        element.placeholder = "Search"
+        element.backgroundColor = UIColor.ciLightGrey
         return element
     }()
     
@@ -51,7 +53,7 @@ class CoinListViewController: UIViewController {
         let subLabel = UILabel()
         subLabel.text = "No result match this keyword"
         subLabel.font = UIFont.systemFont(ofSize: 16)
-        subLabel.textColor = UIColor.color(with: "#999999")
+        subLabel.textColor = UIColor.ciGrey
         element.addSubview(subLabel)
         subLabel.snp.makeConstraints { make in
             make.centerX.equalTo(element)
