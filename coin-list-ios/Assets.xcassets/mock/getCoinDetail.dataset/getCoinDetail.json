@@ -1,0 +1,120 @@
+{
+  "status": "success",
+  "data": {
+    "coin": {
+      "uuid": "Qwsogvtv82FCd",
+      "symbol": "BTC",
+      "name": "Bitcoin",
+      "description": "Bitcoin is a digital currency with a finite supply, allowing users to send/receive money without a central bank/government, often nicknamed \"Digital Gold\".",
+      "color": "#f7931A",
+      "iconUrl": "https://cdn.coinranking.com/bOabBYkcX/bitcoin_btc.svg",
+      "websiteUrl": "https://bitcoin.org",
+      "links": [
+        {
+          "name": "coinmarketcap.com",
+          "url": "https://coinmarketcap.com/currencies/bitcoin/",
+          "type": "cmc"
+        },
+        {
+          "name": "bitcoin.org",
+          "type": "website",
+          "url": "https://bitcoin.org"
+        },
+        {
+          "name": "bitcoinmagazine.com",
+          "url": "https://bitcoinmagazine.com/",
+          "type": "website"
+        },
+        {
+          "name": "bitcointalk.org",
+          "url": "https://bitcointalk.org/",
+          "type": "bitcointalk"
+        },
+        {
+          "name": "bitcoin/bitcoin",
+          "url": "https://github.com/bitcoin/bitcoin",
+          "type": "github"
+        },
+        {
+          "name": "r/bitcoin",
+          "url": "https://www.reddit.com/r/bitcoin/",
+          "type": "reddit"
+        },
+        {
+          "name": "Bitcoin_Magazine",
+          "url": "https://t.me/Bitcoin_Magazine",
+          "type": "telegram"
+        },
+        {
+          "name": "bitcoin",
+          "url": "https://t.me/bitcoin",
+          "type": "telegram"
+        },
+        {
+          "name": "Bitcoin Whitepaper",
+          "url": "https://bitcoin.org/bitcoin.pdf",
+          "type": "whitepaper"
+        }
+      ],
+      "supply": {
+        "confirmed": true,
+        "supplyAt": 1717949402,
+        "max": "21000000",
+        "total": "19710000",
+        "circulating": "19710000"
+      },
+      "numberOfMarkets": 2827,
+      "numberOfExchanges": 113,
+      "24hVolume": "12765468635",
+      "marketCap": "1370282246047",
+      "fullyDilutedMarketCap": "1459965863368",
+      "price": "69522.18396991694",
+      "btcPrice": "1",
+      "priceAt": 1717949340,
+      "change": "0.11",
+      "rank": 1,
+      "sparkline": [
+        "69370.46727445157",
+        "69412.18815407265",
+        "69440.80323304195",
+        "69451.93096316197",
+        "69395.84002192228",
+        "69359.20864977378",
+        "69331.92257109607",
+        "69303.89181275787",
+        "69274.41410325869",
+        "69268.873698611",
+        "69222.47727822384",
+        "69211.63688306985",
+        "69274.0210886579",
+        "69284.41304707444",
+        "69340.96483206334",
+        "69367.82461681146",
+        "69316.46660225559",
+        "69353.81338661251",
+        "69346.38455076292",
+        "69355.6353858782",
+        "69457.01830316636",
+        "69508.30481514896",
+        "69453.75686793924",
+        null
+      ],
+      "allTimeHigh": {
+        "price": "73646.0632562494",
+        "timestamp": 1710400080
+      },
+      "coinrankingUrl": "https://coinranking.com/coin/Qwsogvtv82FCd+bitcoin-btc",
+      "tier": 1,
+      "lowVolume": false,
+      "listedAt": 1330214400,
+      "hasContent": true,
+      "notices": null,
+      "contractAddresses": [],
+      "tags": [
+        "layer-1",
+        "proof-of-work",
+        "halal"
+      ]
+    }
+  }
+}

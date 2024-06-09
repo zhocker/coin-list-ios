@@ -17,7 +17,10 @@ protocol CoinListWorkerProtocol: AnyObject {
 
 class CoinListWorker: CoinListWorkerProtocol {
     
-    private let provider = MoyaProvider<CoinService>()
+    private let provider: MoyaProvider<CoinService>
+    init(provider: MoyaProvider<CoinService> = MoyaProvider<CoinService>()) {
+        self.provider = provider
+    }
 
     func fetchCoins(limit: Int, offset: Int, keyword: String = "", completion: @escaping ([Coin], Error?) -> Void) {
         provider.request(.getCoins(limit: limit, offset: offset, keyword: keyword)) { result in
