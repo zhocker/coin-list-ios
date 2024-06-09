@@ -208,7 +208,9 @@ extension CoinListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = self.dataStore.displayCellItems[indexPath.row]
+        guard let item = self.dataStore.displayCellItems.takeSafe(index: indexPath.row) else  {
+            return UITableViewCell()
+        }
         switch item {
         case .ranking(let attributedString, let coins):
             if let cell = tableView.dequeueReusableCell(withIdentifier: "RankingTableViewCell", for: indexPath) as? RankingTableViewCell {
@@ -258,20 +260,27 @@ extension CoinListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == self.dataStore.displayCellItems.count - 1 {
-            let item = self.dataStore.displayCellItems[indexPath.row]
+            guard let item = self.dataStore.displayCellItems.takeSafe(index: indexPath.row) else  {
+                return
+            }
             switch item {
             case .errorGetCoins,.errorLoadMore:
                 break
             default:
                 self.interactor.handleLoadingFooterView(request: .init(isHidden: false))
-                self.interactor?.loadMore(request: .init())
+                self.debouncer.execute { [weak self] in
+                    guard let self = self else { return }
+                    self.interactor?.loadMore(request: .init())
+                }
             }
         }
 
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = self.dataStore.displayCellItems[indexPath.row]
+        guard let item = self.dataStore.displayCellItems.takeSafe(index: indexPath.row) else  {
+            return
+        }
         switch item {
         case .coin(let coinViewModel):
             self.router.routeToCoinDetail(coinViewModel: coinViewModel)

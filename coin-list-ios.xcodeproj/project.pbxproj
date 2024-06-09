@@ -11,6 +11,7 @@
 		81C376809CD8C92DA9B6D5BF /* Pods_coin_list_ios_coin_list_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1DA2482A358EE721DF5B396 /* Pods_coin_list_ios_coin_list_iosUITests.framework */; };
 		B88D77D54FA761D67CB75890 /* Pods_coin_list_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47485BF0AF4AF2D6B4A065F5 /* Pods_coin_list_iosTests.framework */; };
 		CE733B222C15DAEA0067F081 /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE733B212C15DAEA0067F081 /* AppConstant.swift */; };
+		CE733B242C15DD770067F081 /* Collection+TakeSafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE733B232C15DD770067F081 /* Collection+TakeSafe.swift */; };
 		CE9BC6D22C1416400047635D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC6D12C1416400047635D /* AppDelegate.swift */; };
 		CE9BC6D42C1416400047635D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC6D32C1416400047635D /* SceneDelegate.swift */; };
 		CE9BC6D62C1416400047635D /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BC6D52C1416400047635D /* LaunchViewController.swift */; };
@@ -94,6 +95,7 @@
 		C379016387CE937FC2BAA905 /* Pods-coin-list-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coin-list-ios.debug.xcconfig"; path = "Target Support Files/Pods-coin-list-ios/Pods-coin-list-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		C4CA5E2B5C0A61966E80542A /* Pods-coin-list-ios-coin-list-iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-coin-list-ios-coin-list-iosUITests.release.xcconfig"; path = "Target Support Files/Pods-coin-list-ios-coin-list-iosUITests/Pods-coin-list-ios-coin-list-iosUITests.release.xcconfig"; sourceTree = "<group>"; };
 		CE733B212C15DAEA0067F081 /* AppConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
+		CE733B232C15DD770067F081 /* Collection+TakeSafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+TakeSafe.swift"; sourceTree = "<group>"; };
 		CE9BC6CE2C1416400047635D /* coin-list-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "coin-list-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9BC6D12C1416400047635D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE9BC6D32C1416400047635D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -405,6 +407,7 @@
 				CE9BC7482C14B42B0047635D /* UIColor+Hex.swift */,
 				CE9BC7662C15920A0047635D /* UIImageView+SVG.swift */,
 				CE9BC7702C15B2650047635D /* UIView+Animation.swift */,
+				CE733B232C15DD770067F081 /* Collection+TakeSafe.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -813,6 +816,7 @@
 				CE9BC7672C15920A0047635D /* UIImageView+SVG.swift in Sources */,
 				CE9BC7772C15B5BD0047635D /* LoadMoreFooterView.swift in Sources */,
 				CE9BC73B2C14B0250047635D /* CoinDetailRouter.swift in Sources */,
+				CE733B242C15DD770067F081 /* Collection+TakeSafe.swift in Sources */,
 				CE9BC7142C14251A0047635D /* Coin.swift in Sources */,
 				CE9BC7632C15887C0047635D /* CoinDetailData.swift in Sources */,
 				CE9BC7712C15B2650047635D /* UIView+Animation.swift in Sources */,

@@ -43,10 +43,12 @@ extension RankingTableViewCell: UICollectionViewDelegate, UICollectionViewDataSo
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CoinCollectionViewCell", for: indexPath) as! CoinCollectionViewCell
-        let coin = self.coins[indexPath.row]
-        cell.config(coinViewModel: coin)
-        return cell
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CoinCollectionViewCell", for: indexPath) as? CoinCollectionViewCell,
+           let coin = self.coins.takeSafe(index: indexPath.row) {
+            cell.config(coinViewModel: coin)
+            return cell
+        }
+        return UICollectionViewCell(frame: .zero)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -67,8 +69,9 @@ extension RankingTableViewCell: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let coin = self.coins[indexPath.row]
-        self.didSelectCoin?(coin)
+        if let coin = self.coins.takeSafe(index: indexPath.row) {
+            self.didSelectCoin?(coin)
+        }
     }
     
 }

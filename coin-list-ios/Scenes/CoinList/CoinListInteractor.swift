@@ -43,7 +43,6 @@ class CoinListInteractor: CoinListInteractorBusinessLogic {
 
         self.worker.fetchCoins(offset: 0, keyword: request.keyword) { [weak self] coins, error in
             guard let self = self else { return }
-            self.isLoading = false
             if let error = error {
                 self.items = self.worker.generateGetCoinsErrorCellItems()
                 self.presenter?.performPresentErrorDialog(response: .init(error: error))
@@ -57,6 +56,7 @@ class CoinListInteractor: CoinListInteractorBusinessLogic {
                     self.presenter?.performPresentCoinList(response: .init(items: self.items))
                 }
             }
+            self.isLoading = false
         }
         
     }
@@ -73,7 +73,6 @@ class CoinListInteractor: CoinListInteractorBusinessLogic {
 
         self.worker.fetchCoins(offset: self.coins.count, keyword: keyword) { [weak self] coins, error in
             guard let self = self else { return }
-            self.isLoading = false
             if let error = error {
                 self.items = self.worker.generateLoadMoreErrorCellItems(keyword: keyword, coins: self.coins)
                 self.presenter?.performPresentCoinList(response: .init(items: self.items))
@@ -84,6 +83,7 @@ class CoinListInteractor: CoinListInteractorBusinessLogic {
                 self.items = self.worker.generateDisplayCellItems(keyword: keyword, coins: self.coins)
                 self.presenter?.performPresentCoinList(response: .init(items: self.items))
             }
+            self.isLoading = false
         }
     }
     
