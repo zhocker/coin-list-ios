@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct CoinDetailData: Codable {
+    
+    let coin: CoinDetail?
+
+}

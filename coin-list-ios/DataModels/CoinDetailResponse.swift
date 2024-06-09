@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct CoinDetailResponse: Codable {
+    
+    let status: String?
+    let data: CoinDetailData?
+
+}

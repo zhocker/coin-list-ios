@@ -6,3 +6,17 @@
 //
 
 import Foundation
+
+struct CoinDetail: Codable {
+    
+    let uuid: String?
+    let name: String?
+    let symbol: String?
+    let iconUrl: String?
+    let price: String?
+    
+    let description: String?
+    let marketCap: String?
+    let websiteUrl: String?
+    
+}
