@@ -76,6 +76,22 @@ enum CoinListModels {
         
     }
 
+    enum PresentFooterView {
+        
+        struct Request {
+            let isHidden: Bool
+        }
+
+        struct Response {
+            let isHidden: Bool
+        }
+
+        struct ViewModel {
+            let isHidden: Bool
+        }
+        
+    }
+
 }
 
 

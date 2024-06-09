@@ -11,6 +11,7 @@ import UIKit
 protocol CoinListInteractorBusinessLogic: AnyObject {
     func getCoinList(request: CoinListModels.GetCoinList.Request)
     func loadMore(request: CoinListModels.LoadMore.Request)
+    func handleFooterView(request: CoinListModels.PresentFooterView.Request)
 }
 
 protocol CoinListInteractorDataStore: AnyObject {
@@ -24,6 +25,7 @@ class CoinListInteractor: CoinListInteractorBusinessLogic {
     var worker = CoinListWorker()
     
     private var isLoading = false
+    private var isLastPage = false
     private var keyword: String = ""
     private var coins: [Coin] = []
     private var items: [CoinListModels.DisplayCellItem] = []
@@ -33,8 +35,13 @@ class CoinListInteractor: CoinListInteractorBusinessLogic {
             self.coins.removeAll()
         }
         
+        self.keyword = request.keyword
+        
         guard !self.isLoading else { return }
         self.isLoading = true
+        self.isLastPage = false
+        self.items = self.worker.generateDisplayCellItems(keyword: request.keyword, coins: self.coins)
+        self.presenter?.performPresentCoinList(response: .init(items: self.items))
 
         self.worker.fetchCoins(offset: 0, keyword: request.keyword) { [weak self] coins, error in
             guard let self = self else { return }
@@ -42,14 +49,14 @@ class CoinListInteractor: CoinListInteractorBusinessLogic {
             if let error = error {
                 self.items = self.worker.generateGetCoinsErrorCellItems()
                 self.presenter?.performPresentErrorDialog(response: .init(error: error))
-                self.presenter?.performPresentCoinList(response: .init(items: items))
+                self.presenter?.performPresentCoinList(response: .init(items: self.items))
             } else {
                 self.coins.append(contentsOf: coins)
                 if self.coins.isEmpty {
                     self.presenter?.performPresentEmptyState(response: .init())
                 } else {
                     self.items = self.worker.generateDisplayCellItems(keyword: request.keyword, coins: self.coins)
-                    self.presenter?.performPresentCoinList(response: .init(items: items))
+                    self.presenter?.performPresentCoinList(response: .init(items: self.items))
                 }
             }
         }
@@ -57,7 +64,9 @@ class CoinListInteractor: CoinListInteractorBusinessLogic {
     }
     
     func loadMore(request: CoinListModels.LoadMore.Request) {
-        guard !self.isLoading else { return }
+        guard !self.isLoading && !self.isLastPage else {
+            return
+        }
         self.isLoading = true
         let keyword: String = self.keyword
         
@@ -72,10 +81,20 @@ class CoinListInteractor: CoinListInteractorBusinessLogic {
                 self.presenter?.performPresentCoinList(response: .init(items: self.items))
                 self.presenter?.performPresentErrorDialog(response: .init(error: error))
             } else {
+                self.isLastPage = coins.isEmpty
                 self.coins.append(contentsOf: coins)
                 self.items = self.worker.generateDisplayCellItems(keyword: keyword, coins: self.coins)
                 self.presenter?.performPresentCoinList(response: .init(items: self.items))
             }
+        }
+    }
+    
+    
+    func handleFooterView(request: CoinListModels.PresentFooterView.Request) {
+        if self.isLastPage {
+            self.presenter?.performPresentFooterView(response: .init(isHidden: true))
+        } else {
+            self.presenter?.performPresentFooterView(response: .init(isHidden: request.isHidden))
         }
     }
     

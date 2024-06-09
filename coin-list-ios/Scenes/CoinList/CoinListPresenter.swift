@@ -13,6 +13,7 @@ protocol CoinListPresentationLogic: AnyObject {
     func performPresentErrorDialog(response: CoinListModels.PresentErrorDialog.Response)
     func performPresentCoinList(response: CoinListModels.GetCoinList.Response)
     func performPresentEmptyState(response: CoinListModels.PresentEmptyState.Response)
+    func performPresentFooterView(response: CoinListModels.PresentFooterView.Response)
     
 }
 
@@ -30,6 +31,10 @@ class CoinListPresenter: CoinListPresentationLogic {
     
     func performPresentEmptyState(response: CoinListModels.PresentEmptyState.Response) {
         viewController?.displayEmptyState(viewModel: .init())
+    }
+    
+    func performPresentFooterView(response: CoinListModels.PresentFooterView.Response) {
+        viewController?.displayFooterView(viewModel: .init(isHidden: response.isHidden))
     }
 
 }

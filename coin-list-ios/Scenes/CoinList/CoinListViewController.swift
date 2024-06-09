@@ -13,6 +13,7 @@ protocol CoinListViewControllerDisplayLogic: AnyObject {
     func displayErrorDialog(viewModel: CoinListModels.PresentErrorDialog.ViewModel)
     func displayCoinList(viewModel: CoinListModels.GetCoinList.ViewModel)
     func displayEmptyState(viewModel: CoinListModels.PresentEmptyState.ViewModel)
+    func displayFooterView(viewModel: CoinListModels.PresentFooterView.ViewModel)
 }
 
 class CoinListViewController: UIViewController {
@@ -156,7 +157,7 @@ extension CoinListViewController: CoinListViewControllerDisplayLogic {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.view.makeToast("\(viewModel.message)", duration: 2.0, position: .bottom)
-            self.tableView.tableFooterView?.isHidden = true
+            self.interactor.handleFooterView(request: .init(isHidden: true))
         }
     }
 
@@ -166,7 +167,7 @@ extension CoinListViewController: CoinListViewControllerDisplayLogic {
             self?.emptyView.isHidden = true
             self?.tableView.reloadData()
             self?.refreshControl.endRefreshing()
-            self?.tableView.tableFooterView?.isHidden = true
+            self?.interactor.handleFooterView(request: .init(isHidden: true))
         }
     }
     
@@ -175,7 +176,13 @@ extension CoinListViewController: CoinListViewControllerDisplayLogic {
             self?.tableView.isHidden = true
             self?.emptyView.isHidden = false
             self?.refreshControl.endRefreshing()
-            self?.tableView.tableFooterView?.isHidden = true
+            self?.interactor.handleFooterView(request: .init(isHidden: true))
+        }
+    }
+    
+    func displayFooterView(viewModel: CoinListModels.PresentFooterView.ViewModel) {
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.tableFooterView?.isHidden = viewModel.isHidden
         }
     }
 
@@ -232,6 +239,7 @@ extension CoinListViewController: UITableViewDelegate, UITableViewDataSource {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "ErrorTableViewCell", for: indexPath) as? ErrorTableViewCell {
                 cell.callback = { [weak self] in
                     guard let self = self else { return }
+                    self.interactor?.handleFooterView(request: .init(isHidden: false))
                     self.interactor?.getCoinList(request: .init(keyword: self.searchBar.text ?? ""))
                 }
                 return cell
@@ -240,9 +248,7 @@ extension CoinListViewController: UITableViewDelegate, UITableViewDataSource {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "ErrorTableViewCell", for: indexPath) as? ErrorTableViewCell {
                 cell.callback = { [weak self] in
                     guard let self = self else { return }
-                    DispatchQueue.main.async {
-                        self.tableView.tableFooterView?.isHidden = false
-                    }
+                    self.interactor?.handleFooterView(request: .init(isHidden: false))
                     self.interactor?.loadMore(request: .init())
                 }
                 return cell
@@ -259,7 +265,7 @@ extension CoinListViewController: UITableViewDelegate, UITableViewDataSource {
             case .errorGetCoins,.errorLoadMore:
                 break
             default:
-                self.tableView.tableFooterView?.isHidden = false
+                self.interactor.handleFooterView(request: .init(isHidden: false))
                 self.interactor?.loadMore(request: .init())
             }
         }
