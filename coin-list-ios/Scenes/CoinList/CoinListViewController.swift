@@ -36,6 +36,7 @@ class CoinListViewController: UIViewController {
     lazy var emptyView: UIView = {
         let element = UIView()
         element.backgroundColor = .clear
+        element.isHidden = true
     
         let label = UILabel()
         label.text = "Sorry"
