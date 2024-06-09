@@ -19,7 +19,7 @@ class CoinListWorker: CoinListWorkerProtocol {
     
     private let provider = MoyaProvider<CoinService>()
 
-    func fetchCoins(limit: Int = 10, offset: Int, keyword: String = "", completion: @escaping ([Coin], Error?) -> Void) {
+    func fetchCoins(limit: Int, offset: Int, keyword: String = "", completion: @escaping ([Coin], Error?) -> Void) {
         provider.request(.getCoins(limit: limit, offset: offset, keyword: keyword)) { result in
             switch result {
             case .success(let response):
