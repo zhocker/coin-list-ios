@@ -11,6 +11,8 @@ import UIKit
 //source: AutoMockable
 protocol CoinDetailPresentationLogic: AnyObject {
     func performPresentErrorDialog(response: CoinDetailModels.PresentErrorDialog.Response)
+    func performPresentCoinDetail(response: CoinDetailModels.GetCoinDetail.Response)
+
 }
 
 class CoinDetailPresenter: CoinDetailPresentationLogic {
@@ -20,6 +22,11 @@ class CoinDetailPresenter: CoinDetailPresentationLogic {
         viewController?.displayErrorDialog(viewModel: .init(title: "Oops!",
                                                             message: response.error?.localizedDescription ?? "Something went wrong."))
     }
+    
+    func performPresentCoinDetail(response: CoinDetailModels.GetCoinDetail.Response) {
+        viewController?.displayCoinDetail(viewModel: .init(coin: response.coin))
+    }
+
 }
 
 // MARK: - Private Method

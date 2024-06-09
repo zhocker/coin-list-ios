@@ -12,15 +12,15 @@ enum CoinDetailModels {
     
     enum GetCoinDetail {
         struct Request {
-            var coinId: String
+            var uuid: String
         }
         
         struct Response {
-            var coin: Coin
+            var coin: CoinDetailViewModel
         }
         
         struct ViewModel {
-            var coin: CoinViewModel
+            var coin: CoinDetailViewModel
         }
     }
     

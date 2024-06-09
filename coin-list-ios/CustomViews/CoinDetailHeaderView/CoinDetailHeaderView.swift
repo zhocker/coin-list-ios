@@ -49,7 +49,18 @@ class CoinDetailHeaderView: UIView {
         nameLabel.text = coinViewModel.name
         symbolLabel.text = "(\(coinViewModel.symbol))"
         priceLabel.text = coinViewModel.price
-//        marketCapLabel.text = coinViewModel.marketCap
     }
 
+    func config(coinDetailViewModel: CoinDetailViewModel) {
+        if let url = URL(string: coinDetailViewModel.iconUrl)  {
+            coinImageView.kf.setImage(with: url)
+        } else {
+            coinImageView.image = nil
+        }
+        nameLabel.text = coinDetailViewModel.name
+        symbolLabel.text = "(\(coinDetailViewModel.symbol))"
+        priceLabel.text = coinDetailViewModel.price
+        marketCapLabel.text = coinDetailViewModel.marketCap
+    }
+    
 }

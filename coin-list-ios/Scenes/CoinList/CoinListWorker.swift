@@ -78,7 +78,7 @@ class CoinListWorker: CoinListWorkerProtocol {
         let invitationText = "Top \(amount) rank crypto"
         let attributedString = NSMutableAttributedString(string: invitationText)
         let fullRange = NSRange(location: 0, length: attributedString.length)
-        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 16), range: fullRange)
+        attributedString.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 16), range: fullRange)
         attributedString.addAttribute(.foregroundColor, value: UIColor.black, range: fullRange)
         
         if let inviteRange = invitationText.range(of: "\(amount)") {

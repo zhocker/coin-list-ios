@@ -11,6 +11,7 @@ import Kingfisher
 
 protocol CoinDetailViewControllerDisplayLogic: AnyObject {
     func displayErrorDialog(viewModel: CoinDetailModels.PresentErrorDialog.ViewModel)
+    func displayCoinDetail(viewModel: CoinDetailModels.GetCoinDetail.ViewModel)
 }
 
 class CoinDetailViewController: UIViewController {
@@ -50,6 +51,7 @@ class CoinDetailViewController: UIViewController {
         element.setTitle("GO TO WEBSITE", for: .normal)
         element.setTitleColor(.systemBlue, for: .normal)
         element.addTarget(self, action: #selector(websiteButtonTapped), for: .touchUpInside)
+        element.isHidden = true
         return element
     }()
     
@@ -78,7 +80,10 @@ class CoinDetailViewController: UIViewController {
         self.initUI()
         self.initLayoutConstraint()
         self.applyStyle()
-        self.bindData(coinViewModel: self.dataStore.coinViewModel)
+        self.bindDefaultData(coinViewModel: self.dataStore.coinViewModel)
+        if let uuid = self.dataStore.coinViewModel?.uuid {
+            self.interactor.getCoinDetail(request: .init(uuid: uuid))
+        }
     }
     
 }
@@ -86,7 +91,7 @@ class CoinDetailViewController: UIViewController {
 private extension CoinDetailViewController {
     
     @objc private func websiteButtonTapped() {
-        if let url = URL(string: self.dataStore.coinViewModel?.iconUrl ?? "") {
+        if let url = URL(string: self.dataStore.websiteUrl) {
             UIApplication.shared.open(url)
         }
     }
@@ -158,22 +163,26 @@ private extension CoinDetailViewController {
         self.view.backgroundColor = .clear
     }
     
-    func bindData(coinViewModel: CoinViewModel?) {
-        guard let coinViewModel = coinViewModel else { return }
-        self.headerView.config(coinViewModel: coinViewModel)
-        self.contentLabel.text = """
-Bitcoin is the first digital currency that allows users to send and receive money, without the interference of a central bank or government. Instead, a network of thousands of peers is controlling the transactions; a decentralized system Why does bitcoin have  Bitcoin is the first digital currency that allows users to send and receive money, without the interference of a central bank or government. Instead, a network of thousands of peers is controlling the transactions; a decentralized system Why does bitcoin have Bitcoin is the first digital currency that allows users to send and receive money, without the interference of a central bank or government. Instead, a network of thousands of peers is controlling the transactions; a decentralized system Why does bitcoin have Bitcoin is the first digital currency that allows users to send and receive money, without the interference of a central bank or government. Instead, a network of thousands of peers is controlling the transactions; a decentralized system Why does bitcoin have Bitcoin is the first digital currency that allows users to send and receive money, without the interference of a central bank or government. Instead, a network of thousands of peers is controlling the transactions
-"""
-    }
-
 }
 
 // MARK: - CoinDetailDisplayLogic
 
 extension CoinDetailViewController: CoinDetailViewControllerDisplayLogic {
+    
+    private func bindDefaultData(coinViewModel: CoinViewModel?) {
+        guard let coinViewModel = coinViewModel else { return }
+        self.headerView.config(coinViewModel: coinViewModel)
+        self.contentLabel.text = ""
+    }
 
     func displayErrorDialog(viewModel: CoinDetailModels.PresentErrorDialog.ViewModel) {
         debugPrint("Error na!")
+    }
+    
+    func displayCoinDetail(viewModel: CoinDetailModels.GetCoinDetail.ViewModel) {
+        self.headerView.config(coinDetailViewModel: viewModel.coin)
+        self.contentLabel.text = viewModel.coin.description
+        self.websiteButton.isHidden = false
     }
 
 }
