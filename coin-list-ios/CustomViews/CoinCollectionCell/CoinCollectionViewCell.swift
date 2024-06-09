@@ -28,19 +28,18 @@ class CoinCollectionViewCell: UICollectionViewCell {
             shadowView.addBottomShadow()
         }
     }
-    
-    func config(coin: Coin) {
-        if let iconUrl = coin.iconUrl, let url = URL(string: iconUrl)  {
+        
+    func config(coinViewModel: CoinViewModel) {
+        if let url = URL(string: coinViewModel.iconUrl)  {
             coinImageView.kf.setImage(with: url)
         } else {
             coinImageView.image = nil
         }
-        nameLabel.text = coin.name
-        symbolLabel.text = coin.symbol
-        changeLabel.text = coin.change
-        changeLabel.textColor = UIColor.color(with: coin.changeColor)
-        chanageImageView.image = UIImage(named: coin.changeIconImageName)
-        
+        nameLabel.text = coinViewModel.name
+        symbolLabel.text = coinViewModel.symbol
+        changeLabel.text = coinViewModel.change
+        changeLabel.textColor = UIColor.color(with: coinViewModel.changeColor)
+        chanageImageView.image = UIImage(named: coinViewModel.changeIconImageName)
     }
 
 }

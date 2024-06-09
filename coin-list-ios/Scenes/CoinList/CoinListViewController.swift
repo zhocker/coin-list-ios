@@ -154,8 +154,8 @@ extension CoinListViewController: UITableViewDelegate, UITableViewDataSource {
         case .ranking(let attributedString, let coins):
             if let cell = tableView.dequeueReusableCell(withIdentifier: "RankingTableViewCell", for: indexPath) as? RankingTableViewCell {
                 cell.config(attributedString: attributedString, coins: coins)
-                cell.didSelectCoin = { [weak self] coin in
-                    self?.router.routeToCoinDetail(coin: coin)
+                cell.didSelectCoin = { [weak self] coinViewModel in
+                    self?.router.routeToCoinDetail(coinViewModel: coinViewModel)
                 }
                 return cell
             }
@@ -164,9 +164,9 @@ extension CoinListViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.config(title: title)
                 return cell
             }
-        case .coin(let coin):
+        case .coin(let coinViewModel):
             if let cell = tableView.dequeueReusableCell(withIdentifier: "CoinTableViewCell", for: indexPath) as? CoinTableViewCell {
-                cell.config(coin: coin)
+                cell.config(coinViewModel: coinViewModel)
                 return cell
             }
         case .inviteFriend(let attributedString):
@@ -192,8 +192,8 @@ extension CoinListViewController: UITableViewDelegate, UITableViewDataSource {
             break
         case .title:
             break
-        case .coin(let coin):
-            self.router.routeToCoinDetail(coin: coin)
+        case .coin(let coinViewModel):
+            self.router.routeToCoinDetail(coinViewModel: coinViewModel)
             break
         case .inviteFriend(let attributedString):
             self.router.shareText(invitationText: attributedString.string)

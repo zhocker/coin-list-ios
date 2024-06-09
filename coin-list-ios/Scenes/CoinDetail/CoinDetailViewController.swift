@@ -78,7 +78,7 @@ class CoinDetailViewController: UIViewController {
         self.initUI()
         self.initLayoutConstraint()
         self.applyStyle()
-        self.bindData(coin: self.dataStore.displayCoin)
+        self.bindData(coinViewModel: self.dataStore.coinViewModel)
     }
     
 }
@@ -86,7 +86,7 @@ class CoinDetailViewController: UIViewController {
 private extension CoinDetailViewController {
     
     @objc private func websiteButtonTapped() {
-        if let url = URL(string: self.dataStore.displayCoin?.iconUrl ?? "") {
+        if let url = URL(string: self.dataStore.coinViewModel?.iconUrl ?? "") {
             UIApplication.shared.open(url)
         }
     }
@@ -158,9 +158,9 @@ private extension CoinDetailViewController {
         self.view.backgroundColor = .clear
     }
     
-    func bindData(coin: Coin?) {
-        guard let coin = coin else { return }
-        self.headerView.config(coin: coin)
+    func bindData(coinViewModel: CoinViewModel?) {
+        guard let coinViewModel = coinViewModel else { return }
+        self.headerView.config(coinViewModel: coinViewModel)
         self.contentLabel.text = """
 Bitcoin is the first digital currency that allows users to send and receive money, without the interference of a central bank or government. Instead, a network of thousands of peers is controlling the transactions; a decentralized system Why does bitcoin have  Bitcoin is the first digital currency that allows users to send and receive money, without the interference of a central bank or government. Instead, a network of thousands of peers is controlling the transactions; a decentralized system Why does bitcoin have Bitcoin is the first digital currency that allows users to send and receive money, without the interference of a central bank or government. Instead, a network of thousands of peers is controlling the transactions; a decentralized system Why does bitcoin have Bitcoin is the first digital currency that allows users to send and receive money, without the interference of a central bank or government. Instead, a network of thousands of peers is controlling the transactions; a decentralized system Why does bitcoin have Bitcoin is the first digital currency that allows users to send and receive money, without the interference of a central bank or government. Instead, a network of thousands of peers is controlling the transactions
 """

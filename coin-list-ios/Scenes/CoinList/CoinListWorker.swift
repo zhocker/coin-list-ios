@@ -42,9 +42,9 @@ class CoinListWorker: CoinListWorkerProtocol {
             return []
         }
         
-        var items: [Coin] = coins
+        var items: [CoinViewModel] = coins.map({ convertCoinToCoinViewModel(coin: $0) })
         var displayCellItems: [CoinListModels.DisplayCellItem] = []
-        let topRankCoins: [Coin] = Array(items.prefix(3))
+        let topRankCoins: [CoinViewModel] = Array(items.prefix(5))
         if keyword.isEmpty && !topRankCoins.isEmpty {
             displayCellItems.append(.ranking(generateTopRankingTitle(amount: topRankCoins.count), topRankCoins))
             items = Array(items.dropFirst(topRankCoins.count))
@@ -88,6 +88,20 @@ class CoinListWorker: CoinListWorkerProtocol {
         }
         return attributedString
     }
-
-
+    
+    private func convertCoinToCoinViewModel(coin: Coin) -> CoinViewModel {
+        let formatter = CoinViewModelFormatter()
+        let changeInfo = formatter.determineChangeColorAndIcon(change: coin.change)
+        let displayPrice = formatter.formatPrice(from: coin)
+        
+        return CoinViewModel(uuid: coin.uuid ?? "",
+                             name: coin.name ?? "",
+                             symbol: coin.symbol ?? "",
+                             iconUrl: coin.iconUrl ?? "",
+                             price: displayPrice,
+                             change: coin.change ?? "0.00",
+                             changeColor: changeInfo.changeColor,
+                             changeIconImageName: changeInfo.changeIcon)
+    }
+    
 }

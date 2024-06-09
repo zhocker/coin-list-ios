@@ -11,8 +11,8 @@ class RankingTableViewCell: UITableViewCell {
 
     @IBOutlet weak var rankingLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
-    private var coins: [Coin] = []
-    var didSelectCoin: ((Coin) -> Void)?
+    private var coins: [CoinViewModel] = []
+    var didSelectCoin: ((CoinViewModel) -> Void)?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,7 +27,7 @@ class RankingTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func config(attributedString: NSAttributedString, coins: [Coin]) {
+    func config(attributedString: NSAttributedString, coins: [CoinViewModel]) {
         self.rankingLabel.attributedText = attributedString
         self.coins = coins
         self.collectionView.reloadData()
@@ -44,7 +44,7 @@ extension RankingTableViewCell: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CoinCollectionViewCell", for: indexPath) as! CoinCollectionViewCell
         let coin = self.coins[indexPath.row]
-        cell.config(coin: coin)
+        cell.config(coinViewModel: coin)
         return cell
     }
 

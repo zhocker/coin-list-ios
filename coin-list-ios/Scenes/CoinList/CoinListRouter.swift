@@ -11,7 +11,7 @@ import UIKit
 protocol CoinListRouterRoutingLogic {
     static func createScene() -> CoinListViewController
     func shareText(invitationText: String)
-    func routeToCoinDetail(coin: Coin)
+    func routeToCoinDetail(coinViewModel: CoinViewModel)
 }
 
 class CoinListRouter: CoinListRouterRoutingLogic {    
@@ -48,10 +48,10 @@ class CoinListRouter: CoinListRouterRoutingLogic {
         }
     }
     
-    func routeToCoinDetail(coin: Coin) {
+    func routeToCoinDetail(coinViewModel: CoinViewModel) {
         guard let viewController = self.viewController else { return }
         DispatchQueue.main.async {
-            let vc = CoinDetailRouter.createScene(coin: coin)
+            let vc = CoinDetailRouter.createScene(coinViewModel: coinViewModel)
             viewController.present(vc, animated: true)
         }
     }

@@ -40,18 +40,16 @@ class CoinDetailHeaderView: UIView {
         self.backgroundColor = .white
     }
     
-    func config(coin: Coin) {
-        if let iconUrl = coin.iconUrl, let url = URL(string: iconUrl)  {
+    func config(coinViewModel: CoinViewModel) {
+        if let url = URL(string: coinViewModel.iconUrl)  {
             coinImageView.kf.setImage(with: url)
-        }
-        nameLabel.text = coin.name
-        if let symbol = coin.symbol {
-            symbolLabel.text = "(\(symbol))"
         } else {
-            symbolLabel.text = ""
+            coinImageView.image = nil
         }
-        priceLabel.text = coin.price
-        marketCapLabel.text = coin.marketCap
+        nameLabel.text = coinViewModel.name
+        symbolLabel.text = "(\(coinViewModel.symbol))"
+        priceLabel.text = coinViewModel.price
+//        marketCapLabel.text = coinViewModel.marketCap
     }
 
 }

@@ -22,32 +22,3 @@ struct Coin: Codable {
     let rank: Int?
     
 }
-
-extension Coin {
-    
-    var changeColor: String {
-        guard let change = self.change else {
-            return "#000000"
-        }
-        if change.contains("-") {
-            return "#F82D2D"
-        }
-        if change == "0.00" {
-            return "#000000"
-        }
-        return "#13BC24"
-    }
-    
-    var changeIconImageName: String {
-        guard let change = self.change else {
-            return ""
-        }
-        if change.contains("-") {
-            return "icon-arrow-down"
-        }
-        if change == "0.00" {
-            return ""
-        }
-        return "icon-arrow-up"
-    }
-}
