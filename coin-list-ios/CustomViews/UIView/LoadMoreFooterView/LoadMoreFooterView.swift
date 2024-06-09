@@ -9,7 +9,17 @@ import UIKit
 import SnapKit
 
 class LoadMoreFooterView: UIView {
-
+    
+    override var isHidden: Bool {
+        didSet {
+            if isHidden {
+                loadingImageView.stopRotating()
+            } else {
+                loadingImageView.startRotating()
+            }
+        }
+    }
+    
     lazy var loadingImageView: UIImageView = {
         let element = UIImageView()
         element.image = UIImage(named: "icon-loading-footer")
@@ -32,9 +42,8 @@ class LoadMoreFooterView: UIView {
             make.height.width.equalTo(40)
             make.center.equalToSuperview()
         }
-        
-        loadingImageView.startRotating()
     }
+    
 }
 
 
