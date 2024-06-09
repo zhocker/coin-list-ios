@@ -43,8 +43,12 @@ class CoinListInteractor: CoinListInteractorBusinessLogic {
                 self.presenter?.performPresentErrorDialog(response: .init(error: error))
             } else {
                 self.coins.append(contentsOf: coins)
-                items = self.worker.generateDisplayCellItems(keyword: request.keyword, coins: self.coins)
-                self.presenter?.performPresentCoinList(response: .init(items: items))
+                if self.coins.isEmpty {
+                    self.presenter?.performPresentEmptyState(response: .init())
+                } else {
+                    items = self.worker.generateDisplayCellItems(keyword: request.keyword, coins: self.coins)
+                    self.presenter?.performPresentCoinList(response: .init(items: items))
+                }
             }
         }
         

@@ -49,28 +49,7 @@ enum CoinListModels {
         
     }
     
-    enum ShareSocial {
-        
-        struct Request {
-
-        }
-        
-        struct Response {
-
-        }
-        
-        struct ViewModel {
-
-        }
-        
-    }
-
-    
     enum PresentErrorDialog {
-        
-        struct Request {
-            
-        }
 
         struct Response {
             var error: Error?
@@ -80,21 +59,17 @@ enum CoinListModels {
             var title: String?
             var message: String
         }
+        
     }
 
     enum PresentEmptyState {
-        
-        struct Request {
-            
-        }
 
         struct Response {
-            var error: Error?
+
         }
 
         struct ViewModel {
-            var title: String?
-            var message: String
+
         }
         
     }

@@ -24,11 +24,11 @@ class CoinDetailWorker: CoinDetailWorkerProtocol {
             case .success(let response):
                 do {
                     let response = try JSONDecoder().decode(CoinDetailResponse.self, from: response.data)
-                    guard let coins = response.data?.coin else {
+                    guard let coin = response.data?.coin else {
                         completion(nil, nil)
                         return
                     }
-                    completion(coins, nil)
+                    completion(coin, nil)
                 } catch {
                     completion(nil, error)
                 }

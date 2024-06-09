@@ -51,9 +51,9 @@ extension RankingTableViewCell: UICollectionViewDelegate, UICollectionViewDataSo
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let padding: CGFloat = 8
-        let availableWidth = collectionView.frame.width - (padding * 4) + 30
+        let availableWidth = collectionView.frame.width - (padding * 2)
         let widthPerItem = availableWidth / 3
-        let aspectRatio: CGFloat = 144.00/110.00
+        let aspectRatio: CGFloat = 148.00/110.00
 
         return CGSize(width: widthPerItem, height: widthPerItem * aspectRatio)
     }

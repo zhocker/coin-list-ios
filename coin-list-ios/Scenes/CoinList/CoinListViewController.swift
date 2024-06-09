@@ -32,8 +32,34 @@ class CoinListViewController: UIViewController {
         element.delegate = self
         return element
     }()
+    
+    lazy var emptyView: UIView = {
+        let element = UIView()
+        element.backgroundColor = .clear
+    
+        let label = UILabel()
+        label.text = "Sorry"
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        element.addSubview(label)
+        label.snp.makeConstraints { make in
+            make.center.equalTo(element)
+        }
+        
+        let subLabel = UILabel()
+        subLabel.text = "No result match this keyword"
+        subLabel.font = UIFont.systemFont(ofSize: 16)
+        subLabel.textColor = UIColor.color(with: "#999999")
+        element.addSubview(subLabel)
+        subLabel.snp.makeConstraints { make in
+            make.centerX.equalTo(element)
+            make.top.equalTo(label.snp.bottom).offset(8)
+        }
+        
+        return element
+    }()
 
     lazy var tableView: UITableView = {
+        
         let element = UITableView()
         element.separatorStyle = .none
         element.delegate = self
@@ -78,6 +104,7 @@ private extension CoinListViewController {
 
     func initUI() {
         self.view.addSubview(dummyView)
+        self.view.addSubview(emptyView)
         self.view.addSubview(searchBar)
         self.view.addSubview(tableView)
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
@@ -85,6 +112,10 @@ private extension CoinListViewController {
     
     func initLayoutConstraint() {
         self.dummyView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+        
+        self.emptyView.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
 
@@ -109,6 +140,7 @@ private extension CoinListViewController {
 // MARK: - CoinListDisplayLogic
 
 extension CoinListViewController: CoinListViewControllerDisplayLogic {
+    
 
     func displayErrorDialog(viewModel: CoinListModels.PresentErrorDialog.ViewModel) {
         debugPrint("Error na!")
@@ -116,13 +148,19 @@ extension CoinListViewController: CoinListViewControllerDisplayLogic {
 
     func displayCoinList(viewModel: CoinListModels.GetCoinList.ViewModel) {
         DispatchQueue.main.async { [weak self] in
+            self?.tableView.isHidden = false
+            self?.emptyView.isHidden = true
             self?.tableView.reloadData()
             self?.refreshControl.endRefreshing()
         }
     }
     
     func displayEmptyState(viewModel: CoinListModels.PresentEmptyState.ViewModel) {
-        
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.isHidden = true
+            self?.emptyView.isHidden = false
+            self?.refreshControl.endRefreshing()
+        }
     }
 
 }

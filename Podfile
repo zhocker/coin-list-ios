@@ -10,6 +10,7 @@ target 'coin-list-ios' do
   pod 'Kingfisher'
   pod 'ProgressHUD'
   pod 'SwiftDraw'
+  pod 'Toast-Swift'
 
   target 'coin-list-iosTests' do
     inherit! :search_paths

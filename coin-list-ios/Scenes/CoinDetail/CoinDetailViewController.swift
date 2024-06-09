@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import Kingfisher
+import Toast_Swift
 
 protocol CoinDetailViewControllerDisplayLogic: AnyObject {
     func displayErrorDialog(viewModel: CoinDetailModels.PresentErrorDialog.ViewModel)
@@ -171,18 +172,27 @@ extension CoinDetailViewController: CoinDetailViewControllerDisplayLogic {
     
     private func bindDefaultData(coinViewModel: CoinViewModel?) {
         guard let coinViewModel = coinViewModel else { return }
-        self.headerView.config(coinViewModel: coinViewModel)
-        self.contentLabel.text = ""
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.headerView.config(coinViewModel: coinViewModel)
+            self.contentLabel.text = ""
+        }
     }
 
     func displayErrorDialog(viewModel: CoinDetailModels.PresentErrorDialog.ViewModel) {
-        debugPrint("Error na!")
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.view.makeToast("\(viewModel.message)", duration: 2.0, position: .bottom)
+        }
     }
     
     func displayCoinDetail(viewModel: CoinDetailModels.GetCoinDetail.ViewModel) {
-        self.headerView.config(coinDetailViewModel: viewModel.coin)
-        self.contentLabel.text = viewModel.coin.description
-        self.websiteButton.isHidden = false
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.headerView.config(coinDetailViewModel: viewModel.coin)
+            self.contentLabel.text = viewModel.coin.description
+            self.websiteButton.isHidden = false
+        }
     }
 
 }

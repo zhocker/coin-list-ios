@@ -36,6 +36,9 @@ class CoinDetailInteractor: CoinDetailInteractorBusinessLogic, CoinDetailInterac
                 self.presenter?.performPresentCoinDetail(response: .init(coin: coinDetailViewModel))
             } else if let error = error {
                 self.presenter?.performPresentErrorDialog(response: .init(error: error))
+            } else {
+                let error = AppError(message: "Something went wrong.")
+                self.presenter?.performPresentErrorDialog(response: .init(error: error))
             }
         }
     }
@@ -46,3 +49,4 @@ class CoinDetailInteractor: CoinDetailInteractorBusinessLogic, CoinDetailInterac
 private extension CoinDetailInteractor {
     
 }
+

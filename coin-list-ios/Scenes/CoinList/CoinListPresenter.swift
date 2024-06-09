@@ -12,6 +12,8 @@ import UIKit
 protocol CoinListPresentationLogic: AnyObject {
     func performPresentErrorDialog(response: CoinListModels.PresentErrorDialog.Response)
     func performPresentCoinList(response: CoinListModels.GetCoinList.Response)
+    func performPresentEmptyState(response: CoinListModels.PresentEmptyState.Response)
+    
 }
 
 class CoinListPresenter: CoinListPresentationLogic {
@@ -24,6 +26,10 @@ class CoinListPresenter: CoinListPresentationLogic {
     
     func performPresentCoinList(response: CoinListModels.GetCoinList.Response) {
         viewController?.displayCoinList(viewModel: .init(items: response.items))
+    }
+    
+    func performPresentEmptyState(response: CoinListModels.PresentEmptyState.Response) {
+        viewController?.displayEmptyState(viewModel: .init())
     }
 
 }
