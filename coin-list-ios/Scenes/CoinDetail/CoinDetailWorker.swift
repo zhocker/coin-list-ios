@@ -51,7 +51,8 @@ class CoinDetailWorker: CoinDetailWorkerProtocol {
                                    price: displayPrice,
                                    description: coin.description ?? "",
                                    marketCap: displayMarketCap,
-                                   websiteUrl: coin.websiteUrl ?? "https://coinranking.com/")
+                                   websiteUrl: coin.websiteUrl ?? "https://coinranking.com/",
+                                   color: coin.color ?? "#000000")
     }
 
 

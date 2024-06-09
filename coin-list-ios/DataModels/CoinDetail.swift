@@ -18,5 +18,6 @@ struct CoinDetail: Codable {
     let description: String?
     let marketCap: String?
     let websiteUrl: String?
-    
+    let color: String?
+
 }

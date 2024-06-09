@@ -58,6 +58,7 @@ class CoinDetailHeaderView: UIView {
             coinImageView.image = nil
         }
         nameLabel.text = coinDetailViewModel.name
+        nameLabel.textColor = UIColor.color(with: coinDetailViewModel.color)
         symbolLabel.text = "(\(coinDetailViewModel.symbol))"
         priceLabel.text = coinDetailViewModel.price
         marketCapLabel.text = coinDetailViewModel.marketCap
