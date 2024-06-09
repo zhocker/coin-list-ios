@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I20-4Y-gIP">
-                        <rect key="frame" x="8" y="0.0" width="304" height="82"/>
+                        <rect key="frame" x="14" y="0.0" width="292" height="82"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -106,9 +106,10 @@
                     </view>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="I20-4Y-gIP" secondAttribute="trailing" constant="14" id="2gc-7P-9bB"/>
+                    <constraint firstItem="I20-4Y-gIP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="Gef-2U-02y"/>
                     <constraint firstItem="9Ko-Yk-LLw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="JJn-KA-4tz"/>
                     <constraint firstAttribute="bottom" secondItem="9Ko-Yk-LLw" secondAttribute="bottom" constant="12" id="Nwh-B9-sA9"/>
-                    <constraint firstItem="I20-4Y-gIP" firstAttribute="width" secondItem="9Ko-Yk-LLw" secondAttribute="width" id="cUw-cs-usW"/>
                     <constraint firstItem="9Ko-Yk-LLw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="gF2-Kh-ggu"/>
                     <constraint firstItem="I20-4Y-gIP" firstAttribute="centerY" secondItem="9Ko-Yk-LLw" secondAttribute="centerY" id="lQn-hn-LrP"/>
                     <constraint firstAttribute="trailing" secondItem="9Ko-Yk-LLw" secondAttribute="trailing" constant="8" id="qVw-jz-0IW"/>

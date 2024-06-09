@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VmS-bo-Ar3">
-                        <rect key="frame" x="0.0" y="0.0" width="110" height="140"/>
+                        <rect key="frame" x="6" y="16" width="98" height="124"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -117,11 +117,11 @@
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Svc-KT-egh" secondAttribute="bottom" constant="8" id="8fn-7m-Lu2"/>
                 <constraint firstAttribute="bottom" secondItem="VmS-bo-Ar3" secondAttribute="bottom" constant="8" id="BZO-mb-rFu"/>
-                <constraint firstItem="VmS-bo-Ar3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ZRW-SH-RfR"/>
+                <constraint firstItem="VmS-bo-Ar3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="6" id="ZRW-SH-RfR"/>
                 <constraint firstItem="Svc-KT-egh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="gy6-Jy-CX4"/>
                 <constraint firstAttribute="trailing" secondItem="Svc-KT-egh" secondAttribute="trailing" id="rHb-C4-r39"/>
-                <constraint firstAttribute="trailing" secondItem="VmS-bo-Ar3" secondAttribute="trailing" id="rw2-zV-2a7"/>
-                <constraint firstItem="VmS-bo-Ar3" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="vLf-3W-7Qc"/>
+                <constraint firstAttribute="trailing" secondItem="VmS-bo-Ar3" secondAttribute="trailing" constant="6" id="rw2-zV-2a7"/>
+                <constraint firstItem="VmS-bo-Ar3" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="vLf-3W-7Qc"/>
                 <constraint firstItem="Svc-KT-egh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="wxf-gf-Afy"/>
             </constraints>
             <connections>

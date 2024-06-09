@@ -22,7 +22,8 @@ class CoinViewModelFormatter {
         self.marketCapFormatter = NumberFormatter()
         self.marketCapFormatter.numberStyle = .currency
         self.marketCapFormatter.currencySymbol = "$"
-        self.marketCapFormatter.maximumFractionDigits = 0
+        self.marketCapFormatter.maximumFractionDigits = 2
+        self.marketCapFormatter.minimumFractionDigits = 2
     }
 
     func formatPrice(price: Double) -> String {
@@ -40,11 +41,11 @@ class CoinViewModelFormatter {
         case 1_000_000...:
             let value = marketCap / 1_000_000
             return "$\(String(format: "%.2f", value)) million"
-        case 1_000...:
+        case 10_000...:
             let value = marketCap / 1_000
             return "$\(String(format: "%.2f", value)) thousand"
         default:
-            return marketCapFormatter.string(from: NSNumber(value: marketCap)) ?? "$0"
+            return marketCapFormatter.string(from: NSNumber(value: marketCap)) ?? "$0.00"
         }
     }
     
