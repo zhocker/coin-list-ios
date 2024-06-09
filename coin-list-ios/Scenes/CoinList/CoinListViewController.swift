@@ -67,37 +67,35 @@ class CoinListViewController: UIViewController {
         element.separatorStyle = .none
         element.delegate = self
         element.dataSource = self
-        element.refreshControl = self.refreshControl
         
-        element.register(UINib(nibName: "InviteFriendTableViewCell", bundle: nil), forCellReuseIdentifier: "InviteFriendTableViewCell")
-        element.register(UINib(nibName: "TitleTableViewCell", bundle: nil), forCellReuseIdentifier: "TitleTableViewCell")
-        element.register(UINib(nibName: "RankingTableViewCell", bundle: nil), forCellReuseIdentifier: "RankingTableViewCell")
-        element.register(UINib(nibName: "CoinTableViewCell", bundle: nil), forCellReuseIdentifier: "CoinTableViewCell")
-        element.register(UINib(nibName: "ErrorTableViewCell", bundle: nil), forCellReuseIdentifier: "ErrorTableViewCell")
+        let cellIdentifiers: [String] = [
+            "TitleTableViewCell",
+            "RankingTableViewCell",
+            "InviteFriendTableViewCell",
+            "CoinTableViewCell",
+            "ErrorTableViewCell"
+        ]
+        cellIdentifiers.forEach { identifier in
+            element.register(UINib(nibName: identifier, bundle: nil), forCellReuseIdentifier: identifier)
+        }
         
+        let refreshControl = CustomRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        element.refreshControl = refreshControl
+
         let footerView = LoadMoreFooterView(frame: CGRect(x: 0, y: 0, width: element.frame.width, height: 50))
         element.tableFooterView = footerView
         
         return element
         
     }()
-    
-    lazy var refreshControl: CustomRefreshControl = {
-        let element = CustomRefreshControl()
-        return element
-    }()
-    
-    lazy var loadMoreFooterView: LoadMoreFooterView = {
-        let footerView = LoadMoreFooterView()
-        return footerView
-    }()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initUI()
         self.initLayoutConstraint()
         self.applyStyle()
-        self.interactor.handleFooterView(request: .init(isHidden: false))
+        self.interactor.handleLoadingFooterView(request: .init(isHidden: false))
         self.interactor.getCoinList(request: .init(keyword: self.searchBar.text ?? ""))
     }
 
@@ -119,7 +117,6 @@ private extension CoinListViewController {
         self.view.addSubview(emptyView)
         self.view.addSubview(searchBar)
         self.view.addSubview(tableView)
-        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
     }
     
     func initLayoutConstraint() {
@@ -158,7 +155,7 @@ extension CoinListViewController: CoinListViewControllerDisplayLogic {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.view.makeToast("\(viewModel.message)", duration: 2.0, position: .bottom)
-            self.interactor.handleFooterView(request: .init(isHidden: true))
+            self.interactor.handleLoadingFooterView(request: .init(isHidden: true))
         }
     }
 
@@ -167,8 +164,8 @@ extension CoinListViewController: CoinListViewControllerDisplayLogic {
             self?.tableView.isHidden = false
             self?.emptyView.isHidden = true
             self?.tableView.reloadData()
-            self?.refreshControl.endRefreshing()
-            self?.interactor.handleFooterView(request: .init(isHidden: true))
+            self?.tableView.refreshControl?.endRefreshing()
+            self?.interactor.handleLoadingFooterView(request: .init(isHidden: true))
         }
     }
     
@@ -176,8 +173,8 @@ extension CoinListViewController: CoinListViewControllerDisplayLogic {
         DispatchQueue.main.async { [weak self] in
             self?.tableView.isHidden = true
             self?.emptyView.isHidden = false
-            self?.refreshControl.endRefreshing()
-            self?.interactor.handleFooterView(request: .init(isHidden: true))
+            self?.tableView.refreshControl?.endRefreshing()
+            self?.interactor.handleLoadingFooterView(request: .init(isHidden: true))
         }
     }
     
@@ -240,7 +237,7 @@ extension CoinListViewController: UITableViewDelegate, UITableViewDataSource {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "ErrorTableViewCell", for: indexPath) as? ErrorTableViewCell {
                 cell.callback = { [weak self] in
                     guard let self = self else { return }
-                    self.interactor?.handleFooterView(request: .init(isHidden: false))
+                    self.interactor?.handleLoadingFooterView(request: .init(isHidden: false))
                     self.interactor?.getCoinList(request: .init(keyword: self.searchBar.text ?? ""))
                 }
                 return cell
@@ -249,7 +246,7 @@ extension CoinListViewController: UITableViewDelegate, UITableViewDataSource {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "ErrorTableViewCell", for: indexPath) as? ErrorTableViewCell {
                 cell.callback = { [weak self] in
                     guard let self = self else { return }
-                    self.interactor?.handleFooterView(request: .init(isHidden: false))
+                    self.interactor?.handleLoadingFooterView(request: .init(isHidden: false))
                     self.interactor?.loadMore(request: .init())
                 }
                 return cell
@@ -266,7 +263,7 @@ extension CoinListViewController: UITableViewDelegate, UITableViewDataSource {
             case .errorGetCoins,.errorLoadMore:
                 break
             default:
-                self.interactor.handleFooterView(request: .init(isHidden: false))
+                self.interactor.handleLoadingFooterView(request: .init(isHidden: false))
                 self.interactor?.loadMore(request: .init())
             }
         }
@@ -276,19 +273,13 @@ extension CoinListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = self.dataStore.displayCellItems[indexPath.row]
         switch item {
-        case .ranking:
-            break
-        case .title:
-            break
         case .coin(let coinViewModel):
             self.router.routeToCoinDetail(coinViewModel: coinViewModel)
             break
         case .inviteFriend(let attributedString):
             self.router.shareText(invitationText: attributedString.string)
             break
-        case .errorGetCoins:
-            break
-        case .errorLoadMore:
+        default:
             break
         }
     }

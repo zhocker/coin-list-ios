@@ -11,7 +11,7 @@ import UIKit
 protocol CoinListInteractorBusinessLogic: AnyObject {
     func getCoinList(request: CoinListModels.GetCoinList.Request)
     func loadMore(request: CoinListModels.LoadMore.Request)
-    func handleFooterView(request: CoinListModels.PresentFooterView.Request)
+    func handleLoadingFooterView(request: CoinListModels.PresentFooterView.Request)
 }
 
 protocol CoinListInteractorDataStore: AnyObject {
@@ -31,10 +31,8 @@ class CoinListInteractor: CoinListInteractorBusinessLogic {
     private var items: [CoinListModels.DisplayCellItem] = []
 
     func getCoinList(request: CoinListModels.GetCoinList.Request) {
-        if self.keyword != request.keyword {
-            self.coins.removeAll()
-        }
-        
+
+        self.coins.removeAll()
         self.keyword = request.keyword
         
         guard !self.isLoading else { return }
@@ -90,7 +88,7 @@ class CoinListInteractor: CoinListInteractorBusinessLogic {
     }
     
     
-    func handleFooterView(request: CoinListModels.PresentFooterView.Request) {
+    func handleLoadingFooterView(request: CoinListModels.PresentFooterView.Request) {
         if self.isLastPage {
             self.presenter?.performPresentFooterView(response: .init(isHidden: true))
         } else {
