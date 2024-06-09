@@ -51,6 +51,7 @@ class CoinDetailViewController: UIViewController {
         let element = UIButton(type: .system)
         element.setTitle("GO TO WEBSITE", for: .normal)
         element.setTitleColor(.systemBlue, for: .normal)
+        element.titleLabel?.font = .boldSystemFont(ofSize: 14)
         element.addTarget(self, action: #selector(websiteButtonTapped), for: .touchUpInside)
         element.isHidden = true
         return element
