@@ -54,10 +54,10 @@ final class CoinViewModelFormatterTests: XCTestCase {
     }
     
     func testFormatPriceFromCoin() {
-        let coin = Coin(uuid: nil, symbol: nil, name: nil, color: nil, iconUrl: nil, marketCap: nil, price: "1234.56", tier: nil, change: nil, rank: nil)
+        let coin = Coin(uuid: nil, symbol: nil, name: nil, color: nil, iconUrl: nil, price: "1234.56", tier: nil, change: nil, rank: nil)
         XCTAssertEqual(formatter.formatPrice(from: coin), "$1,234.56")
 
-        let emptyPriceCoin = Coin(uuid: nil, symbol: nil, name: nil, color: nil, iconUrl: nil, marketCap: nil, price: nil, tier: nil, change: nil, rank: nil)
+        let emptyPriceCoin = Coin(uuid: nil, symbol: nil, name: nil, color: nil, iconUrl: nil, price: nil, tier: nil, change: nil, rank: nil)
         XCTAssertEqual(formatter.formatPrice(from: emptyPriceCoin), "$0.00")
     }
     
