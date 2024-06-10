@@ -270,10 +270,7 @@ extension CoinListViewController: UITableViewDelegate, UITableViewDataSource {
                 break
             default:
                 self.interactor.handleLoadingFooterView(request: .init(isHidden: false))
-                self.debouncer.execute { [weak self] in
-                    guard let self = self else { return }
-                    self.interactor?.loadMore(request: .init())
-                }
+                self.interactor.loadMore(request: .init())
             }
         }
 
