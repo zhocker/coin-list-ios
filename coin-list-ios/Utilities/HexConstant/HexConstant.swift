@@ -11,7 +11,6 @@ import UIKit
 class HexConstant {
     
     static let black: String = "#000000"
-
     static let ciBlue: String = "#38A0FF"
     static let ciLightBlue: String = "#C5E6FF"
     static let ciGreen: String = "#13BC24"

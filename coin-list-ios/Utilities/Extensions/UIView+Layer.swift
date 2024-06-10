@@ -32,7 +32,7 @@ extension UIView {
         get {
             if let cgColor = layer.borderColor {
                 return UIColor(cgColor: cgColor)
-            }else{
+            } else {
                 return nil
             }
         }
@@ -59,4 +59,5 @@ extension UIView {
         self.layer.masksToBounds = false
         
     }
+    
 }

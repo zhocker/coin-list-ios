@@ -8,6 +8,7 @@
 import Foundation
 
 class Debouncer {
+    
     private var timer: Timer?
     private var interval: TimeInterval
 
@@ -25,4 +26,5 @@ class Debouncer {
     deinit {
         timer?.invalidate()
     }
+    
 }

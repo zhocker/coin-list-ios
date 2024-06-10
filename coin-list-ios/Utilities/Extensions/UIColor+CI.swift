@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 extension UIColor {
+    
     static let ciBlue = UIColor.color(with: HexConstant.ciBlue)
     static let ciLightBlue = UIColor.color(with: HexConstant.ciLightBlue)
     static let ciGreen = UIColor.color(with: HexConstant.ciGreen)
@@ -17,4 +18,5 @@ extension UIColor {
     static let ciDarkRed = UIColor.color(with: HexConstant.ciDarkRed)
     static let ciRed = UIColor.color(with: HexConstant.ciRed)
     static let ciLightGrey = UIColor.color(with: HexConstant.ciLightGrey)
+    
 }

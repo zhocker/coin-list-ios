@@ -13,6 +13,7 @@ private let svgCache = NSCache<NSURL, UIImage>()
 extension UIImageView {
     
     func loadSVG(from url: URL) {
+        
         DispatchQueue.global(qos: .default).async {
             if let cachedSVG = svgCache.object(forKey: url as NSURL) {
                 DispatchQueue.main.async { [weak self] in
@@ -36,6 +37,7 @@ extension UIImageView {
                 }
             }.resume()
         }
+        
     }
     
 }
