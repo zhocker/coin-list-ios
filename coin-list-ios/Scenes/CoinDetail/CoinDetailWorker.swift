@@ -15,8 +15,11 @@ protocol CoinDetailWorkerProtocol: AnyObject {
 
 class CoinDetailWorker: CoinDetailWorkerProtocol {
     
-    private let provider = MoyaProvider<CoinService>()
-    
+    private let provider: MoyaProvider<CoinService>
+    init(provider: MoyaProvider<CoinService> = MoyaProvider<CoinService>()) {
+        self.provider = provider
+    }
+
     func fetchCoinDetail(uuid: String, completion: @escaping (CoinDetail?, Error?) -> Void) {
         
         provider.request(.getCoinDetail(uuid: uuid)) { result in
