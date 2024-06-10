@@ -37,8 +37,11 @@ class CoinListInteractor: CoinListInteractorBusinessLogic {
         self.keyword = request.keyword
         
         guard !self.isLoading else { return }
+        
         self.isLoading = true
         self.isLastPage = false
+        
+        
         self.items = self.worker.generateDisplayCellItems(keyword: request.keyword, coins: self.coins)
         self.presenter?.performPresentCoinList(response: .init(items: self.items))
 
@@ -63,11 +66,13 @@ class CoinListInteractor: CoinListInteractorBusinessLogic {
     }
     
     func loadMore(request: CoinListModels.LoadMore.Request) {
-        guard !self.isLoading && !self.isLastPage else {
+        
+        guard self.canLoadMore else {
             return
         }
-        self.isLoading = true
+        
         let keyword: String = self.keyword
+        self.isLoading = true
         
         self.items = self.worker.generateDisplayCellItems(keyword: keyword, coins: self.coins)
         self.presenter?.performPresentCoinList(response: .init(items: self.items))
@@ -79,15 +84,14 @@ class CoinListInteractor: CoinListInteractorBusinessLogic {
                 self.presenter?.performPresentCoinList(response: .init(items: self.items))
                 self.presenter?.performPresentErrorDialog(response: .init(error: error))
             } else {
-                if coins.count < self.limit {
-                    self.isLastPage = true
-                }
+                self.isLastPage = (coins.count < self.limit)
                 self.coins.append(contentsOf: coins)
                 self.items = self.worker.generateDisplayCellItems(keyword: keyword, coins: self.coins)
                 self.presenter?.performPresentCoinList(response: .init(items: self.items))
             }
             self.isLoading = false
         }
+        
     }
     
     
@@ -97,6 +101,10 @@ class CoinListInteractor: CoinListInteractorBusinessLogic {
         } else {
             self.presenter?.performPresentFooterView(response: .init(isHidden: request.isHidden))
         }
+    }
+    
+    private var canLoadMore: Bool {
+        return !self.isLoading && !self.isLastPage
     }
     
 }
